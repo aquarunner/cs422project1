@@ -39,6 +39,12 @@ Rectangle {
         Component.onCompleted: showPage("Options")
 
         Flipper {
+            pageName: "Items"
+            //front: Products {}
+            //back: Cart {}
+        }
+
+        Flipper {
             pageName: "Options"
             front: Options {}
             //back: PersonalInfo {}
@@ -46,15 +52,10 @@ Rectangle {
 
         Flipper {
             pageName: "Help"
-            //front: Help {}
-            //back: About {}
+            front: Help {}
+            back: Complaints {}
         }
 
-        Flipper {
-            pageName: "Items"
-            //front: Products {}
-            //back: Cart {}
-        }
     }
 
     Item {
