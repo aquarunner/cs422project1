@@ -14,16 +14,20 @@ import "components/common"
 Item {
     id: vendor
 
-    //width: 640
-    //height: 960
-    // custom
+    /*
+    width: 640
+    height: 960
+    */
+
     width: 360
     height: 640
+
 
     property alias settings: qmlsettings
     QMLSettings {
         id: qmlsettings
     }
+
 
     property alias translator: languages.item
     Loader {
@@ -31,22 +35,24 @@ Item {
         source: "./components/languages/" + settings.language + ".qml"
     }
 
-    property alias db: dbinterface
+
+    property alias dbi: dbinterface
     DBInterface {
         id: dbinterface
     }
 
-    // If this is the first time running the program,
-    // show the welcome page.
+
+    /* If this is the first time running the program,
+     show the welcome page.*/
     Component.onCompleted: {
         if (settings.firstRun) {
-            //vendorFlip.showBack();
+            /*vendorFlip.showBack();*/
         }
     }
 
     Flipper {
         id: vendorFlip
-        front: Main { id: main }
+        front: Main {}
         back: Welcome {}
     }
 

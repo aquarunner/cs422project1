@@ -10,6 +10,7 @@
 import QtQuick 1.0
 
 Rectangle {
-    width: 100
-    height: 62
+    id: container
+    color: settings.vendorColor
+    anchors.fill: parent
 }
