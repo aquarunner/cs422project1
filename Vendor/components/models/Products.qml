@@ -16,9 +16,10 @@ ListModel{
         price: 1.50
         image: ""
         category: "Candy"
-        favorite: 0
+        favorite: ""
         allergens: ""
-        machines: ""
+        machines: "1 2 4 7"
+        nutritionData: ""
     }
 
     ListElement {
@@ -26,17 +27,19 @@ ListModel{
         price: 1.75
         image: ""
         category: "Candy"
-        favorite: 0
+        favorite: ""
         allergens: ""
-        machines: ""
+        machines: "1 3"
+        nutritionData: ""
     }
     ListElement {
         name: "Chips Ahoy"
         price: 1.00
         image: ""
         category: "Cookies"
-        favorite: 0
+        favorite: ""
         allergens: ""
-        machines: ""
+        machines: "4 7"
+        nutritionData: ""
     }
 }
