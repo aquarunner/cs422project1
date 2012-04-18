@@ -9,8 +9,9 @@
 
 import QtQuick 1.0
 
-Item {
+Rectangle {
     anchors.fill: parent
+    color: "green"
     ListView {
         anchors.fill: parent
         model: ListModel { id: testModel }

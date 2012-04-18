@@ -10,7 +10,19 @@
 import QtQuick 1.0
 import "common"
 
-Button {
-    anchors.centerIn: parent
-    onClicked: playArea.flip()
+MultiPage {
+    id: container
+
+    Products {
+
+    }
+
+    ProductMap {
+
+    }
+
+
+    NutritionInfo {
+
+    }
 }

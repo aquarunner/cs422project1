@@ -98,7 +98,7 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INT PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite INT, allergens TEXT, machines TEXT)";
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INT PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite TEXT, allergens TEXT, machines TEXT)";
             result = doSql(sqlStatement);
 
             model = component.createObject(null);
@@ -108,8 +108,8 @@ Item {
                         model.get(i).name + "'," +
                         model.get(i).price + ",'" +
                         model.get(i).image + "','" +
-                        model.get(i).category + "'," +
-                        model.get(i).favorite+ ",'" +
+                        model.get(i).category + "','" +
+                        model.get(i).favorite+ "','" +
                         model.get(i).allergens + "','" +
                         model.get(i).machines + "')";
                 doSql(sqlStatement);
@@ -222,31 +222,18 @@ Item {
 
 
     function getProducts() {
-        var db = openDB();
 
-        if (db === undefined) {
-            return;
-        }
-
-        var results;
-        try {
-            db.transaction(function(tx) {
-                               try {
-                                   results = tx.executeSql('SELECT * FROM Products');
-                               } catch(error) {
-                                   console.log(error);
-                               }
-                           });
-        } catch(error) {
-            console.log(error);
-        }
+        var sqlStatement = "SELECT * FROM Products";
+        var results = doSql(sqlStatement);
 
         if (parseInt(results.rows.length)) {
             return results.rows;
         } else {
-            console.log("getProducts: no results!");
+            console.log(qsTr("getProducts: no results!  results.rows.length = %1").arg(results.rows.length));
         }
     }
+
+
 
     function currencyExchange(price, currencyID) {
 

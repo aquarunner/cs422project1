@@ -36,12 +36,12 @@ Rectangle {
         anchors.top: headerArea.bottom
         anchors.bottom: mainControlArea.top
 
-        Component.onCompleted: showPage("Options")
+        Component.onCompleted: showPage("Items")
 
         Flipper {
             pageName: "Items"
-            //front: Products {}
-            //back: Cart {}
+            front: Items {}
+            back: Cart {}
         }
 
         Flipper {
@@ -68,7 +68,7 @@ Rectangle {
 
 
         Item {
-            id: settingsButton
+            id: optionsButton
             width: 50
             height: 50
             anchors.left: parent.left
@@ -77,8 +77,8 @@ Rectangle {
             anchors.bottomMargin: 10
 
             Image {
-                id: settingsButtonImage
-                source: "images/settings.png"
+                id: optionsButtonImage
+                source: "images/options.png"
                 anchors.centerIn: parent
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectFit
@@ -88,7 +88,7 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     //playArea.flip()
-                    playArea.showPage('flp');
+                    playArea.showPage("Options");
                 }
             }
         }
@@ -99,8 +99,8 @@ Rectangle {
             id: helpButton
             width: 40
             height: 40
-            anchors.left: settingsButton.right
-            anchors.top: settingsButton.top
+            anchors.left: optionsButton.right
+            anchors.top: optionsButton.top
             anchors.leftMargin: 10
             //color: "black"
             //radius: 4
@@ -116,7 +116,7 @@ Rectangle {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: playArea.flip()
+                onClicked: playArea.showPage("Help");
             }
         }
 
