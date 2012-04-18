@@ -8,4 +8,5 @@ Item {
     //property color vendorColor: "darkolivegreen"
     //property color vendorColor: "#d9d3b5"
 
+    property bool firstRun: true
 }
