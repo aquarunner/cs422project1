@@ -98,16 +98,20 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INT PRIMARY KEY, name TEXT, price REAL, image TEXT)";
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INT PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite INT, allergens TEXT, machines TEXT)";
             result = doSql(sqlStatement);
 
             model = component.createObject(null);
 
             for (i = 0; i < model.count; ++i) {
-                sqlStatement = "INSERT INTO Products(name,price,image) VALUES('" +
-                        model.get(i).name + "','" +
-                        model.get(i).price + "','" +
-                        model.get(i).image + "')";
+                sqlStatement = "INSERT INTO Products(name,price,image,category,favorite,allergens,machines) VALUES('" +
+                        model.get(i).name + "'," +
+                        model.get(i).price + ",'" +
+                        model.get(i).image + "','" +
+                        model.get(i).category + "'," +
+                        model.get(i).favorite+ ",'" +
+                        model.get(i).allergens + "','" +
+                        model.get(i).machines + "')";
                 doSql(sqlStatement);
             }
         }
@@ -214,6 +218,8 @@ Item {
             return result.rows.item(0).val;
         }
     }
+
+
 
     function getProducts() {
         var db = openDB();
