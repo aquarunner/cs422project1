@@ -27,6 +27,10 @@ Item {
                                  });
 
             }
+
+            dbi.setSetting("Who", "Farted?");
+            var str = dbi.getSetting("Who");
+            quitText.text = str;
         }
 
 

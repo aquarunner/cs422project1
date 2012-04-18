@@ -19,6 +19,7 @@ Item {
     property string productDataSource: "models/Products.qml"
     property string machineDataSource: "models/Machines.qml"
     property string currencyDataSource: "models/Currencies.qml"
+    property string categoryDataSource: "models/Categories.qml"
 
     property string dbName: settings.appName + "DB"
     property string dbVer: "1.0"
@@ -46,6 +47,7 @@ Item {
                             tx.executeSql("DROP TABLE IF EXISTS Products");
                             tx.executeSql("DROP TABLE IF EXISTS Machines");
                             tx.executeSql("DROP TABLE IF EXISTS Currencies");
+                            tx.executeSql("DROP TABLE IF EXISTS Categories");
                             tx.executeSql("DROP TABLE IF EXISTS Settings");
                         } catch(error) {
                             console.log("resetDB: " + error);
@@ -155,6 +157,62 @@ Item {
             }
         }
 
+
+        /* Load categories into the database
+         */
+        component = Qt.createComponent(categoryDataSource);
+        if (component.status !== Component.Ready) {
+            console.log("initialize: Catgegory data source didn't load");
+            return;
+        } else {
+
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Categories(id INT PRIMARY KEY, name TEXT)";
+            result = doSql(sqlStatement);
+
+            model = component.createObject(null);
+
+            for (i = 0; i < model.count; ++i) {
+                sqlStatement = "INSERT INTO Categories(name) VALUES('" +
+                        model.get(i).name + "')";
+                doSql(sqlStatement);
+            }
+        }
+
+
+        /* Create the settings table, but don't load the settings yet
+         */
+        sqlStatement = "CREATE TABLE IF NOT EXISTS Settings(key TEXT, val TEXT)";
+        result = doSql(sqlStatement);
+
+    } // initialize()
+
+
+
+    function setSetting(key, val) {
+        var sqlStatement = "REPLACE INTO Settings(key, val) VALUES('" +
+                key + "', '" + val + "')";
+        var result = doSql(sqlStatement);
+
+
+        if (result.rowsAffected !== 1) {
+            console.log(result.rowsAffected);
+            console.log(result.insertId);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function getSetting(key) {
+        var sqlStatement = "SELECT val FROM Settings WHERE key = '" + key + "'";
+        var result = doSql(sqlStatement);
+
+        if (result.rows.length !== 1) {
+            console.log("getSetting: no results!");
+            return "";
+        } else {
+            return result.rows.item(0).val;
+        }
     }
 
     function getProducts() {
