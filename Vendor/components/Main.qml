@@ -12,7 +12,7 @@ import "common"
 
 Rectangle {
     id: container
-    color: qmlsettings.vendorColor
+    color: settings.vendorColor
     anchors.fill: parent
 
     Item {
@@ -29,37 +29,36 @@ Rectangle {
 
     }
 
-    Flipper {
+    MultiPage {
         id: playArea
         width: parent.width
         fill: false
         anchors.top: headerArea.bottom
-        anchors.bottom: controlArea.top
+        anchors.bottom: mainControlArea.top
 
-        front: MultiPage {
-            id: mp
+        Component.onCompleted: showPage("Options")
 
-            Text {
-                id: txt1
-                property string pageName: "txt1"
-                text: qsTr("text 1")
-                anchors.centerIn: parent
-            }
-            Text {
-                id: txt2
-                property string pageName: "txt2"
-                text: qsTr("text 2")
-                anchors.centerIn: parent
-            }
-
+        Flipper {
+            pageName: "Options"
+            front: Options {}
+            //back: PersonalInfo {}
         }
 
-        //front: ProductView {}
-        //back: Button {}
+        Flipper {
+            pageName: "Help"
+            //front: Help {}
+            //back: About {}
+        }
+
+        Flipper {
+            pageName: "Items"
+            //front: Products {}
+            //back: Cart {}
+        }
     }
 
     Item {
-        id: controlArea
+        id: mainControlArea
         width: parent.width
         height: 100
         anchors.bottom: parent.bottom
@@ -88,7 +87,7 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     //playArea.flip()
-                    mp.showPage('txt2');
+                    playArea.showPage('flp');
                 }
             }
         }

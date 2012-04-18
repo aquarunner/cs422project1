@@ -11,6 +11,8 @@ import QtQuick 1.0
 
 Item {
     id: container
+    anchors.fill: container.fill ? parent : undefined
+    property bool fill: true
 
     Component.onCompleted: {
         hideAll();
@@ -21,8 +23,8 @@ Item {
         var o = container.children[i];
         while (o !== undefined) {
             if (o.pageName) {
-                //o.hide();
-                o.visible = false;
+                o.hide();
+                //o.visible = false;
             }
 
             i++;
@@ -39,8 +41,8 @@ Item {
         var o = container.children[i];
         while (o !== undefined) {
             if (o.pageName === page) {
-                //o.show();
-                o.visible = true;
+                o.show();
+                //o.visible = true;
                 return;
             }
 

@@ -16,6 +16,6 @@ Item {
     property color vendorColor: "#222222"
     //property color vendorColor: "darkolivegreen"
     //property color vendorColor: "#d9d3b5"
-
+    property string appName: "SnackMaster"
     property bool firstRun: true
 }

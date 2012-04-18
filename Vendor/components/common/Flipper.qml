@@ -12,19 +12,29 @@ import QtQuick 1.0
 Flipable {
     id: container
     anchors.fill: container.fill ? parent : undefined
+    visible: container.opacity !== 0
+    opacity: container.showing ? 1 : 0
 
-    property string pageName
-
+    property string pageName: ""
+    property bool showing: true
     property int angle: 0
     property bool flipped: false
     property bool fill: true
 
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 250
+        }
+    }
+
     function show() {
-        container.visible = true
+        //container.visible = true
+        container.showing = true
     }
 
     function hide() {
-        container.visible = false
+        //container.visible = false
+        container.showing = false
     }
 
     function flip() {
