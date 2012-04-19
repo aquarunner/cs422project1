@@ -13,14 +13,14 @@ import "common"
 MultiPage {
     id: container
 
-    Component.onCompleted: showPage("Products");
+    Component.onCompleted: showPage("Items");
 
 
     Page {
-        pageName: "Products"
+        pageName: "Items"
 
         Flipper {
-            id: productsPage
+            id: itemsPage
             anchors.bottomMargin: cartPreviewArea.height
             front: ProductsContainer {}
             back: CartContainer {}

@@ -8,7 +8,7 @@ Page {
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottomMargin: 10
-        label: translator.backToItems
+        label: translator.backToItemsText
 
         onClicked: {
             playArea.showPage("Items");

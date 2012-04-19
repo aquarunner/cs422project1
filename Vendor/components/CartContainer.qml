@@ -16,9 +16,9 @@ Page {
         //anchors.horizontalCenter: parent.horizontalCenter
         anchors.margins: 10
         width: 160
-        label: "Back To Items"
+        label: translator.backToItemsText
         onClicked: {
-            productsPage.flip();
+            itemsPage.flip();
         }
     }
 
@@ -29,7 +29,7 @@ Page {
         //anchors.horizontalCenter: parent.horizontalCenter
         anchors.margins: 10
         width: 160
-        label: "Checkout"
+        label: translator.checkoutText
     }
 
 }

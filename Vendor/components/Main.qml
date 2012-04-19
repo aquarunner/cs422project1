@@ -15,11 +15,12 @@ Rectangle {
     color: settings.vendorColor
     anchors.fill: parent
 
-    Item {
+    Rectangle {
         id: headerArea
         width: parent.width
         height: 100
         anchors.top: parent.top
+        color: "darkslategrey"
 
         Text {
             id: headerText
@@ -41,14 +42,14 @@ Rectangle {
 
 
         ItemsContainer {
-            id: itemsPage
+            //id: itemsContainer
             pageName: "Items"
         }
 
 
 
         Flipper {
-            id: optionsPage
+            //id: optionsPage
             pageName: "Options"
             front: Options {}
             //back: PersonalInfo {}
@@ -57,7 +58,7 @@ Rectangle {
 
 
         Flipper {
-            id: helpPage
+            //id: helpPage
             pageName: "Help"
             front: Help {}
             back: Complaints {}
