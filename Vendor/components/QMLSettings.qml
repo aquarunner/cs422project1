@@ -18,4 +18,7 @@ Item {
     //property color vendorColor: "#d9d3b5"
     property string appName: "SnackMaster"
     property bool firstRun: true
+
+    property int totalCartItems: 0
+    property real totalPrice: 0.0
 }
