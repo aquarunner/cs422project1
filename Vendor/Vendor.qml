@@ -24,10 +24,15 @@ Item {
 
 
     Component.onCompleted: {
-        /* If this is the first time running the program,
-         show the welcome page.*/
+        // If this is the first time running the program,
+        // show the welcome page.
         if (settings.firstRun) {
-            /*vendorFlip.showBack();*/
+            //vendorFlip.showBack();
+        }
+
+
+        if (settings.initDBOnLoad) {
+            dbi.initialize();
         }
     }
 

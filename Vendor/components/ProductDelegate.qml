@@ -10,7 +10,16 @@
 import QtQuick 1.0
 import "common"
 
-Flipper {
+Item {
     id: container
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 100
+
+
+    Image {
+        id: productImage
+        source: image
+    }
 
 }

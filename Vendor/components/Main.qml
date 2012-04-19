@@ -139,7 +139,7 @@ Rectangle {
             id: quitButton
             color: settings.vendorColor
             border.color: "black"
-            border.width: 3
+            border.width: 0
             width: 60
             height: 40
             radius: 4
