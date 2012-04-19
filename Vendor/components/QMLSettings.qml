@@ -1,6 +1,6 @@
 /*
- * File:
- * Description:
+ * File: QMLSettings.qml
+ * Description: Global application variables (read and write)
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
  * Course: CS 422
@@ -12,13 +12,11 @@ import QtQuick 1.0
 Item {
     id: container
 
+    property string appName: "SnackMaster"
     property string language: "English"
     property color vendorColor: "#222222"
-    //property color vendorColor: "darkolivegreen"
-    //property color vendorColor: "#d9d3b5"
-    property string appName: "SnackMaster"
     property bool firstRun: true
-
-    property int totalCartItems: 0
+    property bool initDBOnLoad: true
+    property int totalCartItems: 1
     property real totalPrice: 0.0
 }

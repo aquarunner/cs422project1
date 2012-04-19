@@ -11,10 +11,11 @@ import QtQuick 1.0
 
 ListModel{
 
+
     ListElement {
-        name: "Skittles"
+        name: "Skittlez"
         price: 1.50
-        image: ""
+        image: "images/products/skittles.jpg"
         category: "Candy"
         favorite: ""
         allergens: ""

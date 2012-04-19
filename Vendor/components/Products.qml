@@ -1,6 +1,6 @@
 /*
- * File:
- * Description:
+ * File: Products.qml
+ * Description: Displays a products listview as well as selection filters (favorites, categories).
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
  * Course: CS 422
@@ -39,6 +39,12 @@ Page {
                 allItemsTab.selected = true;
                 favoritesTab.selected = false;
                 categoriesTab.selected = false;
+            }
+
+            onSelectedChanged: {
+                if (selected) {
+
+                }
             }
         }
 
@@ -80,8 +86,28 @@ Page {
 
         }
 
+    }  //  filterArea
+
+
+    Page {
+        id: productsArea
+        fill: false
+        anchors.margins: 5
+        anchors.top: filterArea.bottom
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+
+        ListView {
+            id: productsListView
+            anchors.fill: parent
+            clip: true
+            model: ListModel { id: productsListModel }
+            delegate: ProductDelegate { id: productDelegate }
+
+            Component.onCompleted: dbi.importAllProducts(productsListModel);
+
+        }
     }
-
-
-
 }

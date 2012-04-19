@@ -16,10 +16,10 @@ Item {
     /* Properties
      */
 
-    property string productDataSource: "models/Products.qml"
-    property string machineDataSource: "models/Machines.qml"
-    property string currencyDataSource: "models/Currencies.qml"
-    property string categoryDataSource: "models/Categories.qml"
+    property string productDataSource: "models/ProductsModel.qml"
+    property string machineDataSource: "models/MachinesModel.qml"
+    property string currencyDataSource: "models/CurrenciesModel.qml"
+    property string categoryDataSource: "models/CategoriesModel.qml"
 
     property string dbName: settings.appName + "DB"
     property string dbVer: "1.0"
@@ -27,6 +27,7 @@ Item {
     property int dbSize: 10000
 
     property bool alwaysReset: true
+    property bool initialized: false
 
     /* Functions
      */
@@ -188,6 +189,7 @@ Item {
         sqlStatement = "CREATE TABLE IF NOT EXISTS Settings(key TEXT, val TEXT)";
         result = doSql(sqlStatement);
 
+        initialized = true;
     } // initialize()
 
 
@@ -221,19 +223,71 @@ Item {
 
 
 
-    function getProducts() {
+    function importAllProducts(model) {
 
         var sqlStatement = "SELECT * FROM Products";
         var results = doSql(sqlStatement);
 
-        if (parseInt(results.rows.length)) {
-            return results.rows;
-        } else {
-            console.log(qsTr("getProducts: no results!  results.rows.length = %1").arg(results.rows.length));
+        var r = results.rows;
+
+        if (r.length === 0) {
+            console.log("importAllProducts: no results!");
+            return false;
         }
+
+        model.clear();
+        reload(model, r);
+        return true;
     }
 
+    function importFavorites(model) {
 
+        var sqlStatement = "SELECT * FROM Products WHERE favorite <> ''";
+        var results = doSql(sqlStatement);
+
+        var r = results.rows;
+
+        if (r.length === 0) {
+            console.log("importFavorites: no results");
+        }
+
+        model.clear();
+        reload(model, r);
+        return true;
+    }
+
+    function importByCategory(model, category) {
+
+        var sqlStatement = "SELECT * FROM Products WHERE category = '" + category + "'";
+        var results = doSql(sqlStatement);
+
+        var r = results.rows;
+
+        if (r.length === 0) {
+            console.log("importByCategory: no results");
+        }
+
+        model.clear();
+        reload(model, r);
+        return true;
+    }
+
+    function reload(model, r) {
+
+        for (var i = 0; i < r.length; i++) {
+            model.append({
+                             "id": r.item(i).id,
+                             "name": r.item(i).name,
+                             "price": r.item(i).price,
+                             "image": r.item(i).image,
+                             "category": r.item(i).category,
+                             "favorite": r.item(i).favorite,
+                             "allergens": r.item(i).allergens,
+                             "machines": r.item(i).machines
+                         });
+
+        }
+    }
 
     function currencyExchange(price, currencyID) {
 

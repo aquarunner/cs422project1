@@ -8,8 +8,8 @@
  */
 
 import QtQuick 1.0
+import "common"
 
-Item {
+Page {
     id: container
-    anchors.fill: parent
 }
