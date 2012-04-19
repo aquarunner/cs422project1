@@ -61,7 +61,7 @@ Rectangle {
     Item {
         id: mainControlArea
         width: parent.width
-        height: 100
+        height: 70
         anchors.bottom: parent.bottom
 
 
