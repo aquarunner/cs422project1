@@ -10,19 +10,23 @@
 import QtQuick 1.0
 import "common"
 
-MultiPage {
+Flipper {
     id: container
 
-    Products {
+    Item {
+        id: filterTab
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        height: 50
 
+        Text {
+            id: filterText
+            text: qsTr("filter text")
+            anchors.centerIn: parent
+        }
     }
 
-    ProductMap {
-
-    }
 
 
-    NutritionInfo {
-
-    }
 }
