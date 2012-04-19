@@ -5,4 +5,5 @@ Item {
     id: container
 
     property string quitText: "Quit"
+    property string backToItems: "Back To Items"
 }

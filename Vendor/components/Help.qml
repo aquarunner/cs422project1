@@ -1,7 +1,17 @@
-// import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
-import QtQuick 1.1
+import QtQuick 1.0
+import "common"
 
-Rectangle {
-    width: 100
-    height: 62
+Page {
+
+    Button {
+        id: backButton
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottomMargin: 10
+        label: translator.backToItems
+
+        onClicked: {
+            playArea.showPage("Items");
+        }
+    }
 }

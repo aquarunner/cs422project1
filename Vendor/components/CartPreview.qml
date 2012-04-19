@@ -7,13 +7,14 @@ Rectangle {
     anchors.left: parent.left
     anchors.right: parent.right
     height: 100
-    color: "#111111"
-    //color: "black"
+    color: cartMouseArea.pressed ? "black" : "#111111"
+
 
     MouseArea {
+        id: cartMouseArea
         anchors.fill: parent
         onClicked: {
-            products.showBack();
+            productsPage.flip();
         }
     }
 
