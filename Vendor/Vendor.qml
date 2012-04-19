@@ -23,6 +23,22 @@ Item {
     height: 640
 
 
+    Component.onCompleted: {
+        /* If this is the first time running the program,
+         show the welcome page.*/
+        if (settings.firstRun) {
+            /*vendorFlip.showBack();*/
+        }
+    }
+
+
+    Flipper {
+        id: vendorFlip
+        front: Main {}
+        back: Welcome {}
+    }
+
+
     property alias settings: qmlsettings
     QMLSettings {
         id: qmlsettings
@@ -40,20 +56,4 @@ Item {
     DBInterface {
         id: dbinterface
     }
-
-
-    /* If this is the first time running the program,
-     show the welcome page.*/
-    Component.onCompleted: {
-        if (settings.firstRun) {
-            /*vendorFlip.showBack();*/
-        }
-    }
-
-    Flipper {
-        id: vendorFlip
-        front: Main {}
-        back: Welcome {}
-    }
-
 }

@@ -24,7 +24,9 @@ Rectangle {
     property color topColor: "#FFFF66"
     property color bottomColor: "#FFCC00"
 
-    height: 60
+    //height: 60
+    //width: 180
+    height: 40
     width: 180
     border.width: 1
     radius: 4

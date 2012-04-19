@@ -9,10 +9,8 @@
 
 import QtQuick 1.0
 
-Item {
+Page {
     id: container
-    anchors.fill: container.fill ? parent : undefined
-    property bool fill: true
 
     Component.onCompleted: {
         hideAll();
@@ -49,6 +47,5 @@ Item {
             i++;
             o = container.children[i];
         }
-
     }
 }

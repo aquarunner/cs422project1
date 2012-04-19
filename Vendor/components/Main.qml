@@ -38,19 +38,26 @@ Rectangle {
 
         Component.onCompleted: showPage("Items")
 
-        Flipper {
+
+
+        ItemsContainer {
+            id: itemsPage
             pageName: "Items"
-            front: Items {}
-            back: Cart {}
         }
 
+
+
         Flipper {
+            id: optionsPage
             pageName: "Options"
             front: Options {}
             //back: PersonalInfo {}
         }
 
+
+
         Flipper {
+            id: helpPage
             pageName: "Help"
             front: Help {}
             back: Complaints {}
@@ -75,6 +82,7 @@ Rectangle {
             anchors.bottom: parent.bottom
             anchors.leftMargin: 10
             anchors.bottomMargin: 10
+            scale: optionsButtonMouseArea.pressed ? 0.9 : 1
 
             Image {
                 id: optionsButtonImage
@@ -85,6 +93,7 @@ Rectangle {
             }
 
             MouseArea {
+                id: optionsButtonMouseArea
                 anchors.fill: parent
                 onClicked: {
                     //playArea.flip()
@@ -95,15 +104,18 @@ Rectangle {
 
 
 
-        Item {
+        Rectangle {
             id: helpButton
             width: 40
             height: 40
             anchors.left: optionsButton.right
             anchors.top: optionsButton.top
             anchors.leftMargin: 10
-            //color: "black"
-            //radius: 4
+            color: settings.vendorColor
+            radius: 4
+            scale: helpMouseArea.pressed ? 0.9 : 1
+            border.color: "black"
+            border.width: 3
 
             Text {
                 //id: name
@@ -115,20 +127,27 @@ Rectangle {
             }
 
             MouseArea {
+                id: helpMouseArea
                 anchors.fill: parent
                 onClicked: playArea.showPage("Help");
             }
         }
 
 
-        Item {
+        Rectangle {
             id: quitButton
-            width: 100
-            height: 50
-            anchors.bottom: parent.bottom
+            color: settings.vendorColor
+            border.color: "black"
+            border.width: 3
+            width: 60
+            height: 40
+            radius: 4
+            //anchors.bottom: parent.bottom
+            anchors.top: optionsButton.top
             anchors.right: parent.right
             anchors.bottomMargin: 10
             anchors.rightMargin: 10
+            scale: quitButtonMouseArea.pressed ? 0.9 : 1
 
 
             Text {
@@ -139,6 +158,7 @@ Rectangle {
             }
 
             MouseArea {
+                id: quitButtonMouseArea
                 anchors.fill: parent
                 onClicked: Qt.quit();
             }

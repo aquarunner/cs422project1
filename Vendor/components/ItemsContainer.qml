@@ -16,17 +16,19 @@ MultiPage {
     Component.onCompleted: showPage("Products");
 
 
-    Flipper {
+    Page {
         pageName: "Products"
 
         Flipper {
-            id: items
+            id: productsPage
             anchors.bottomMargin: cartPreviewArea.height
-            front: Products {}
-            back: Cart {}
+            front: ProductsContainer {}
+            back: CartContainer {}
         }
 
-        CartPreview { id: cartPreviewArea }
+        CartPreview {
+            id: cartPreviewArea
+        }
     }
 
 
