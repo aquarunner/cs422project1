@@ -15,7 +15,7 @@ Rectangle {
         //id: cartHeaderMessage
         text: container.label
         anchors.centerIn: parent
-        color: container.selected ? "black" : "#222222"
+        color: container.selected ? "black" : "#333333"
         font.bold: true
         font.pointSize: 11
     }

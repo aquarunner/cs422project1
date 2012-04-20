@@ -14,4 +14,5 @@ Item {
     property string allItemsText: "All Items"
     property string favoritesText: "Favorites"
     property string categoriesText: "Categories"
+    property string imageUnavailableText: "IMAGE UNAVAILABLE"
 }
