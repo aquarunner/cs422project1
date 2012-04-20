@@ -13,9 +13,9 @@ ListModel{
 
 
     ListElement {
-        name: "Skittlez"
+        name: "Skittlez Is Really Long"
         price: 1.50
-        image: "images/products/skittles.jpg"
+        image: "images/products/coke.png"
         category: "Candy"
         favorite: ""
         allergens: ""
@@ -37,6 +37,46 @@ ListModel{
         name: "Chips Ahoy"
         price: 1.00
         image: ""
+        category: "Cookies"
+        favorite: ""
+        allergens: ""
+        machines: "4 7"
+        nutritionData: ""
+    }
+    ListElement {
+        name: "Chips Ahoy"
+        price: 1.00
+        image: "images/products/coke.png"
+        category: "Cookies"
+        favorite: ""
+        allergens: ""
+        machines: "4 7"
+        nutritionData: ""
+    }
+    ListElement {
+        name: "Chips Ahoy"
+        price: 1.00
+        image: ""
+        category: "Cookies"
+        favorite: ""
+        allergens: ""
+        machines: "4 7"
+        nutritionData: ""
+    }
+    ListElement {
+        name: "Chips Ahoy"
+        price: 1.00
+        image: "images/products/coke.png"
+        category: "Cookies"
+        favorite: ""
+        allergens: ""
+        machines: "4 7"
+        nutritionData: ""
+    }
+    ListElement {
+        name: "Chips Ahoy"
+        price: 1.00
+        image: "images/products/coke.png"
         category: "Cookies"
         favorite: ""
         allergens: ""

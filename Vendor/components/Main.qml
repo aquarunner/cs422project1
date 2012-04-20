@@ -18,7 +18,7 @@ Rectangle {
     Rectangle {
         id: headerArea
         width: parent.width
-        height: 100
+        height: 50
         anchors.top: parent.top
         color: "darkslategrey"
 
@@ -107,8 +107,8 @@ Rectangle {
 
         Rectangle {
             id: helpButton
-            width: 40
-            height: 40
+            width: 45
+            height: 45
             anchors.left: optionsButton.right
             anchors.top: optionsButton.top
             anchors.leftMargin: 10
@@ -116,7 +116,7 @@ Rectangle {
             radius: 4
             scale: helpMouseArea.pressed ? 0.9 : 1
             border.color: "black"
-            border.width: 3
+            border.width: 2
 
             Text {
                 //id: name
@@ -124,7 +124,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pointSize: 20
                 font.bold: true
-                color: "white"
+                color: "grey"
             }
 
             MouseArea {
