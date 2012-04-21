@@ -10,7 +10,7 @@
 import QtQuick 1.0
 import "common"
 
-Page {
+SimplePage {
     id: container
 
 
@@ -25,7 +25,7 @@ Page {
 
 
 
-    Page {
+    SimplePage {
         id: cart
         visible: settings.totalCartItems !== 0
 

@@ -16,7 +16,7 @@ MultiPage {
     Component.onCompleted: showPage("Items");
 
 
-    Page {
+    SimplePage {
         pageName: "Items"
 
         Flipper {

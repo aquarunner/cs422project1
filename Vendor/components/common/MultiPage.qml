@@ -9,7 +9,7 @@
 
 import QtQuick 1.0
 
-Page {
+SimplePage {
     id: container
 
     Component.onCompleted: {

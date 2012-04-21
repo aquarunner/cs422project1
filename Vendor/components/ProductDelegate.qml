@@ -110,7 +110,7 @@ Item {
             settings.totalCartItems += 1
             settings.totalPrice += parseFloat(price);
 
-
+            notificationPop.show(qsTr("Added %1 to cart...").arg(name));
         }
     }
 }

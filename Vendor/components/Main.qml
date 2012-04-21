@@ -15,6 +15,10 @@ Rectangle {
     color: settings.vendorColor
     anchors.fill: parent
 
+    PopUp {
+        id: notificationPop
+    }
+
     Rectangle {
         id: headerArea
         width: parent.width
