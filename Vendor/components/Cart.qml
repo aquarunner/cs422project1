@@ -52,12 +52,7 @@ Page {
         } // cartHeader
 
 
-        Text {
-            //id: name
-            text: "All your items"
-            anchors.centerIn: parent
-            color: "white"
-        }
+        // Cart list view
     }
 
 }

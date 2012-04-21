@@ -61,7 +61,7 @@ Rectangle {
 
         Text {
             id: totalItemsText
-            text: "0"
+            text: settings.totalCartItems
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.topMargin: 10
@@ -87,7 +87,7 @@ Rectangle {
 
         Text {
             id: totalPriceText
-            text: "$0"
+            text: parseFloat(settings.totalPrice).toFixed(2)
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10

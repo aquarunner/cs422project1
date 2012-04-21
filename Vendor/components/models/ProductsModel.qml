@@ -39,7 +39,7 @@ ListModel{
         image: ""
         category: "Cookies"
         favorite: ""
-        allergens: ""
+        allergens: "peanuts"
         machines: "4 7"
         nutritionData: ""
     }
@@ -68,7 +68,7 @@ ListModel{
         price: 1.00
         image: "images/products/coke.png"
         category: "Cookies"
-        favorite: ""
+        favorite: "Yes"
         allergens: ""
         machines: "4 7"
         nutritionData: ""

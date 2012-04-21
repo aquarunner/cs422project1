@@ -15,30 +15,36 @@ Page {
     anchors.fill: parent
 
     Cart {
-
-    }
-
-    Button {
-        id: cartBackButton
-        anchors.bottom: parent.bottom
-        anchors.left: settings.totalCartItems == 0 ? undefined : parent.left
-        anchors.horizontalCenter: settings.totalCartItems == 0 ? parent.horizontalCenter : undefined
-        anchors.margins: 10
-        width: 160
-        label: translator.backToItemsText
-        onClicked: {
-            itemsPage.flip();
-        }
-    }
-
-    Button {
-        id: checkoutButton
-        visible: settings.totalCartItems !== 0
-        anchors.bottom: parent.bottom
+        fill: false
+        anchors.top: parent.top
+        anchors.left: parent.left
         anchors.right: parent.right
-        anchors.margins: 10
-        width: 160
-        label: translator.checkoutText
+        anchors.bottom: cartControlArea.top
+    }
+
+    Row {
+        id: cartControlArea
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 5
+        spacing: 20
+
+        Button {
+            id: cartBackButton
+            width: 160
+            label: translator.backToItemsText
+            onClicked: {
+                itemsPage.flip();
+            }
+        }
+
+        Button {
+            id: checkoutButton
+            visible: settings.totalCartItems !== 0
+            anchors.margins: 10
+            width: 160
+            label: translator.checkoutText
+        }
     }
 
 }

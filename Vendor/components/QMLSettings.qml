@@ -17,6 +17,6 @@ Item {
     property color vendorColor: "#222222"
     property bool firstRun: true
     property bool initDBOnLoad: true
-    property int totalCartItems: 1
+    property int totalCartItems: 0
     property real totalPrice: 0.0
 }

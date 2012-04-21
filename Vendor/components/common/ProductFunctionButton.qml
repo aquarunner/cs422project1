@@ -5,6 +5,7 @@ Item {
     width: 25
     height: 25
     scale: functionButtonMouseArea.pressed ? 0.9 : 1
+    opacity: functionButtonMouseArea.pressed ? 1 : 0.5
 
     property string source: ""
 
@@ -23,4 +24,11 @@ Item {
         anchors.fill: parent
         onClicked: container.clicked();
     }
+
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 200
+        }
+    }
+
 }

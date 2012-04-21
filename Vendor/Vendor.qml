@@ -14,10 +14,10 @@ import "components/common"
 Item {
     id: vendor
 
-    /*
-    width: 640
-    height: 960
-    */
+
+    //width: 640
+    //height: 960
+
 
     width: 360
     height: 640
