@@ -1,5 +1,5 @@
 /*
- * File: Page.qml
+ * File: SimplePage.qml
  * Description: Reusable QML item.  Stripped down version of Flipper.qml.
  * Author: dyoung24@uic.edu
  * Instructor: Johnson

@@ -16,11 +16,87 @@ Item {
     anchors.right: parent.right
     height: 100
 
-    Text {
-        //id: name
-        text: name
-        anchors.centerIn: parent
-        color: "white"
+
+    Image {
+        id: productImage
+        source: image
+        width: 70
+        height: 70
+        anchors.left: parent.left
+        anchors.top: parent.top
+
+        ImageUnavailable {
+            visible: productImage.status !== Image.Ready
+        }
     }
 
+    Text {
+        id: productName
+        text: name
+        color: "white"
+        font.bold: true
+        anchors.left: parent.left
+        anchors.top: productImage.bottom
+        width: productImage.width
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.Wrap
+    }
+
+
+    ProductFunctionButton {
+        id: cautionButton
+        anchors.right: favoriteButton.left
+        anchors.rightMargin: 20
+        anchors.verticalCenter: parent.verticalCenter
+        source: "../images/caution.png"
+
+        opacity: hasAllergens ? 1 : 0.1
+
+        property bool hasAllergens: allergens
+        onClicked: {
+            hasAllergens = !hasAllergens
+        }
+    }
+
+    ProductFunctionButton {
+        id: favoriteButton
+        anchors.right: directionsButton.left
+        anchors.rightMargin: 20
+        anchors.verticalCenter: parent.verticalCenter
+        source: "../images/favorite.png"
+
+        opacity: isFavorite ? 1 : 0.1
+
+        property bool isFavorite: favorite
+        onClicked: {
+            isFavorite = !isFavorite
+        }
+    }
+
+    ProductFunctionButton {
+        id: directionsButton
+        anchors.right: productInfoButton.left
+        anchors.rightMargin: 20
+        anchors.verticalCenter: parent.verticalCenter
+        source: "../images/directions.png"
+    }
+
+
+
+    ProductFunctionButton {
+        id: productInfoButton
+        anchors.right: buyButton.left
+        anchors.rightMargin: 20
+        anchors.verticalCenter: parent.verticalCenter
+        source: "../images/document.png"
+    }
+
+    Button {
+        id: buyButton
+        label: price
+        width: 70
+        height: 30
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+    }
 }
