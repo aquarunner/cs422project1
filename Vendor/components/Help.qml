@@ -10,7 +10,7 @@
 import QtQuick 1.0
 import "common"
 
-Page {
+SimplePage {
 
     Button {
         id: helpBackButton

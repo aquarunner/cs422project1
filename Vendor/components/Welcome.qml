@@ -10,6 +10,6 @@
 import QtQuick 1.0
 import "common"
 
-Page {
+SimplePage {
     id: container
 }

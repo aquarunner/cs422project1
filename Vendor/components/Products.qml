@@ -10,7 +10,7 @@
 import QtQuick 1.0
 import "common"
 
-Page {
+SimplePage {
     id: container
 
 
@@ -89,7 +89,7 @@ Page {
     }  //  filterArea
 
 
-    Page {
+    SimplePage {
         id: productsArea
         fill: false
         anchors.margins: 5
