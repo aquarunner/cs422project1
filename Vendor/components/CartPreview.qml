@@ -6,7 +6,8 @@
  * Course: CS 422
  * Date: 4-26-2012
  */
-import QtQuick 1.0
+import QtQuick 1.1
+
 
 
 Rectangle {
@@ -14,7 +15,7 @@ Rectangle {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    height: 100
+    height: 80
     color: cartMouseArea.pressed ? "black" : "#111111"
     //scale: cartMouseArea.pressed ? 0.9 : 1
 
@@ -30,7 +31,7 @@ Rectangle {
 
     Image {
         id: cartImage
-        source: "images/cart.png"
+        source: "images/cart.png" //settings.totalCartItems ? "images/cart_full.png" : "images/cart_empty.png"
         width: 70
         height: 70
         anchors.left: parent.left
@@ -86,8 +87,9 @@ Rectangle {
         }
 
         Text {
+            property string exchange: dbi.currencyExchange(settings.totalPrice, settings.preferredCurrencyCode)
             id: totalPriceText
-            text: parseFloat(settings.totalPrice).toFixed(2)
+            text: exchange
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10

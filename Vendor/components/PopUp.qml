@@ -4,17 +4,22 @@ import "common"
 Rectangle {
     id: container
     width: parent.width / 2
-    height: 100
+    height: 50
+    anchors.horizontalCenter: parent.horizontalCenter
+    y: parent.height * 0.6
+    z: 1
     color: "#222222"
-    radius: 4
-    border.color: "black"
-    border.width: 2
-    anchors.centerIn: parent
+    radius: 6
+    border.color: "#888888"
+    border.width: 4
+    //anchors.centerIn: parent
     opacity: showing ? 1 : 0
 
     property bool showing: false
 
     function show(message) {
+        showing = false;
+        popTimer.stop();
         popText.text = message;
         showing = true;
     }
@@ -26,14 +31,16 @@ Rectangle {
         anchors.centerIn: parent
         anchors.margins: 10
         horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
         wrapMode: Text.Wrap
         font.bold: true
-        color: white
+        font.letterSpacing: 1
+        color: "white"
     }
 
     Behavior on opacity {
         NumberAnimation {
-            duration: 500
+            duration: 200
         }
     }
 
@@ -47,7 +54,7 @@ Rectangle {
         id: popTimer
         running: false
         repeat: false
-        interval: 5000
+        interval: 3000
         onTriggered: {
             showing = false;
         }

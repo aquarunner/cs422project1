@@ -1,5 +1,5 @@
 /*
- * File: SimplePage.qml
+ * File: ModelPopUp.qml
  * Description: Reusable QML item.  Stripped down version of FlipablePage.qml.
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
@@ -13,11 +13,23 @@ Item {
     id: container
     anchors.fill: container.fill ? parent : undefined
     visible: container.opacity !== 0
-    //opacity: container.showing ? 1 : 0
+    opacity: 0
 
     property string pageName: ""
-    property bool showing: true
     property bool fill: true
+
+
+    signal lostFocus()
+
+    MouseArea {
+        id: mouseCatcher
+        anchors.fill: parent
+        enabled: container.opacity
+        onClicked: {
+            container.hide();
+            container.lostFocus();
+        }
+    }
 
     Behavior on opacity {
         NumberAnimation {
@@ -26,14 +38,10 @@ Item {
     }
 
     function show() {
-        //container.visible = true
-        //container.showing = true
         container.opacity = 1
     }
 
     function hide() {
-        //container.visible = false
-        //container.showing = false
         container.opacity = 0
     }
 

@@ -16,6 +16,7 @@ MultiPage {
     Component.onCompleted: showPage("Products")
 
     Products {
+        id: productsPage
         pageName: "Products"
     }
 
@@ -25,5 +26,22 @@ MultiPage {
 
     ProductFacts {
         pageName: "ProductFacts"
+    }
+
+//    ProductAllergens {
+//        pageName: "ProductAllergens"
+//    }
+
+    CategorySelection {
+        pageName: "CategorySelection"
+
+        onConfirmed: {
+            productsPage.showCategory();
+            showPage("Products");
+        }
+
+        onDismissed: {
+            showPage("Products");
+        }
     }
 }

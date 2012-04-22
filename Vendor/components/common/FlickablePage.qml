@@ -1,5 +1,5 @@
 /*
- * File: SimplePage.qml
+ * File: FlickablePage.qml
  * Description: Reusable QML item.  Stripped down version of FlipablePage.qml.
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
@@ -9,8 +9,9 @@
 
 import QtQuick 1.0
 
-Item {
+Flickable {
     id: container
+    flickableDirection: Flickable.VerticalFlick
     anchors.fill: container.fill ? parent : undefined
     visible: container.opacity !== 0
     //opacity: container.showing ? 1 : 0

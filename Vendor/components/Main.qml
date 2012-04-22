@@ -52,7 +52,7 @@ Rectangle {
 
 
 
-        Flipper {
+        FlipablePage {
             //id: optionsPage
             pageName: "Options"
             front: Options {}
@@ -61,7 +61,7 @@ Rectangle {
 
 
 
-        Flipper {
+        FlipablePage {
             //id: helpPage
             pageName: "Help"
             front: Help {}

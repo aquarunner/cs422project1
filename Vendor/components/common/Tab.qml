@@ -2,8 +2,9 @@ import QtQuick 1.0
 
 Rectangle {
     id: container
-    color: container.selected ? "darkslategray" : "#111111"
+    color: (container.selected || tabMouseArea.pressed) ? "darkslategray" : "#111111"
     radius: 6
+    clip: true
 
     property string label: ""
     property alias text: container.label
@@ -12,7 +13,6 @@ Rectangle {
     signal clicked()
 
     Text {
-        //id: cartHeaderMessage
         text: container.label
         anchors.centerIn: parent
         color: container.selected ? "black" : "#333333"
@@ -22,6 +22,7 @@ Rectangle {
 
 
     MouseArea {
+        id: tabMouseArea
         anchors.fill: parent
         onClicked: container.clicked();
     }

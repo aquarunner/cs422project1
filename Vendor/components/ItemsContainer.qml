@@ -19,11 +19,11 @@ MultiPage {
     SimplePage {
         pageName: "Items"
 
-        Flipper {
+        FlipablePage {
             id: itemsPage
             anchors.bottomMargin: cartPreviewArea.height
-            front: ProductsContainer {}
-            back: CartContainer {}
+            front: ProductsContainer { id: productsContainer }
+            back: CartContainer { id: cartContainer }
         }
 
         CartPreview {
