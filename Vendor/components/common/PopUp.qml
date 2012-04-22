@@ -7,8 +7,8 @@ Rectangle {
     height: 50
     anchors.horizontalCenter: parent.horizontalCenter
     y: parent.height * 0.6
-    z: 1
-    color: "#222222"
+    //z: 1
+    color: "#111111"
     radius: 6
     border.color: "#888888"
     border.width: 4

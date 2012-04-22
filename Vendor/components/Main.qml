@@ -15,9 +15,10 @@ Rectangle {
     color: settings.vendorColor
     anchors.fill: parent
 
-    PopUp {
-        id: notificationPop
-    }
+
+
+
+
 
     Rectangle {
         id: headerArea
@@ -33,6 +34,10 @@ Rectangle {
         }
 
     }
+
+
+
+
 
     MultiPage {
         id: playArea
@@ -69,6 +74,10 @@ Rectangle {
         }
 
     }
+
+
+
+
 
     Item {
         id: mainControlArea
@@ -169,4 +178,15 @@ Rectangle {
             }
         }
     }
+
+
+
+
+
+
+
+    PopUp {
+        id: notificationPop
+    }
+
 }

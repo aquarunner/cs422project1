@@ -17,7 +17,7 @@ Rectangle {
         anchors.centerIn: parent
         color: container.selected ? "black" : "#333333"
         font.bold: true
-        font.pointSize: 11
+        font.pointSize: 10
     }
 
 
