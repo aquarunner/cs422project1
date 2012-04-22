@@ -28,9 +28,9 @@ MultiPage {
         pageName: "ProductFacts"
     }
 
-//    ProductAllergens {
-//        pageName: "ProductAllergens"
-//    }
+    ProductAllergens {
+        pageName: "ProductAllergens"
+    }
 
     CategorySelection {
         pageName: "CategorySelection"

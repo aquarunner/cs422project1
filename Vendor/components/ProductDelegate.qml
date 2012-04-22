@@ -16,7 +16,7 @@ Item {
     anchors.right: parent.right
     height: 100
 
-    property int spacing: 15
+    property int spacing: 20
 
 
     Image {

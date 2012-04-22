@@ -1,5 +1,5 @@
 /*
- * File: CategorySelection.qml
+ * File: ProductAllergens.qml
  * Description:
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
