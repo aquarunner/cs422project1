@@ -97,7 +97,7 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INT PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite TEXT, allergens TEXT, machines TEXT)";
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INTEGER PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite TEXT, allergens TEXT, machines TEXT)";
             result = doSql(sqlStatement);
 
             model = component.createObject(null);
@@ -124,7 +124,7 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Machines(id INT PRIMARY KEY, map TEXT)";
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Machines(id INTEGER PRIMARY KEY, map TEXT)";
             result = doSql(sqlStatement);
 
             model = component.createObject(null);
@@ -145,23 +145,22 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Currencies(id INT PRIMARY KEY, name TEXT, rate REAL, symbol TEXT, image TEXT)";
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Currencies(id INTEGER PRIMARY KEY, name TEXT, rate REAL, code TEXT)";
             result = doSql(sqlStatement);
 
             model = component.createObject(null);
 
             for (i = 0; i < model.count; ++i) {
-                sqlStatement = "INSERT INTO Currencies(name, rate, symbol, image) VALUES('" +
+                sqlStatement = "INSERT INTO Currencies(name, rate, code) VALUES('" +
                         model.get(i).name + "'," +
                         model.get(i).rate + ",'" +
-                        model.get(i).symbol + "','" +
-                        model.get(i).image + "')";
+                        model.get(i).code + "')";
                 doSql(sqlStatement);
             }
         }
 
 
-        /* Create the settings table, but don't load the settings yet
+        /* Create the settings table
          */
         sqlStatement = "CREATE TABLE IF NOT EXISTS Settings(key TEXT, val TEXT)";
         result = doSql(sqlStatement);
@@ -199,55 +198,31 @@ Item {
     }
 
 
+    // type is All or Favorites
+    function importProducts(model, type, category) {
 
-    function importAllProducts(model) {
-
-        var sqlStatement = "SELECT * FROM Products";
+        var sqlStatement;
+        if (type === "Favorites")
+            sqlStatement = "SELECT * FROM Products WHERE favorite <> ''";
+        else if (type === "All")
+            sqlStatement = "SELECT * FROM Products";
+        else if (type === "Category")
+            sqlStatement = "SELECT * FROM Products WHERE category = '" + category + "'";
         var results = doSql(sqlStatement);
 
         var r = results.rows;
 
         if (r.length === 0) {
-            console.log("importAllProducts: no results!");
-            return false;
+            console.log("importProducts: no results");
         }
 
         model.clear();
         reload(model, r);
         return true;
+
     }
 
-    function importFavorites(model) {
 
-        var sqlStatement = "SELECT * FROM Products WHERE favorite <> ''";
-        var results = doSql(sqlStatement);
-
-        var r = results.rows;
-
-        if (r.length === 0) {
-            console.log("importFavorites: no results");
-        }
-
-        model.clear();
-        reload(model, r);
-        return true;
-    }
-
-    function importByCategory(model, category) {
-
-        var sqlStatement = "SELECT * FROM Products WHERE category = '" + category + "'";
-        var results = doSql(sqlStatement);
-
-        var r = results.rows;
-
-        if (r.length === 0) {
-            console.log("importByCategory: no results");
-        }
-
-        model.clear();
-        reload(model, r);
-        return true;
-    }
 
     function importCategories(model) {
 
@@ -287,11 +262,42 @@ Item {
         }
     }
 
-    function currencyExchange(price, currencyID) {
+    function currencyExchange(price, currencyCode) {
 
-        var db = openDB();
-        var rate = db.getExchangeRate(currencyID);
-        var newPrice = price * rate;
-        return newPrice;
+        if (price === 0) {
+            return "0"
+        }
+
+        var sqlStatement = "SELECT rate FROM Currencies WHERE code = '" + currencyCode + "'";
+        var result = doSql(sqlStatement);
+
+        if (result.rows.length !== 1) {
+            console.log("currencyExchange: no results");
+            return 0;
+        }
+
+        var rate = result.rows.item(0).rate;
+        var exchange = price * rate;
+
+        // Returns string representation of float with decimal precision of 2
+        return parseFloat(exchange).toFixed(2);
+    }
+
+    function addFavorite(id) {
+        var sqlStatement = "UPDATE Products SET favorite='Yes' WHERE id=" + id + "";
+        var result = doSql(sqlStatement);
+
+        if (result === undefined || result.rowsAffected !== 1) {
+            console.log("addFavorite: Incorrect rows affected: " +  result.rowsAffected);
+        }
+    }
+
+    function removeFavorite(id) {
+        var sqlStatement = "UPDATE Products SET favorite='' WHERE id=" + id;
+        var result = doSql(sqlStatement);
+
+        if (result.rowsAffected !== 1) {
+            console.log("removeFavorite: Incorrect rows affected: " +  result.rowsAffected);
+        }
     }
 }

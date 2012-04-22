@@ -13,10 +13,14 @@ Item {
     id: container
 
     property string appName: "SnackMaster"
-    property string language: "English"
     property color vendorColor: "#222222"
     property bool firstRun: true
     property bool initDBOnLoad: true
     property int totalCartItems: 0
     property real totalPrice: 0.0
+    property string preferredCurrencyCode: "AUD"
+    property string preferredLanguage: "English"
+    property string selectedCategory: ""
+    property int canvasPointSize: 11
+
 }

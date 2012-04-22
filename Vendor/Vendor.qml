@@ -22,8 +22,7 @@ Item {
     width: 360
     height: 640
 
-
-    Component.onCompleted: {
+   Component.onCompleted: {
         // If this is the first time running the program,
         // show the welcome page.
         if (settings.firstRun) {
@@ -37,7 +36,7 @@ Item {
     }
 
 
-    Flipper {
+    FlipablePage {
         id: vendorFlip
         front: Main {}
         back: Welcome {}
@@ -53,7 +52,7 @@ Item {
     property alias translator: languages.item
     Loader {
         id: languages
-        source: "./components/languages/" + settings.language + ".qml"
+        source: "./components/languages/" + settings.preferredLanguage + ".qml"
     }
 
 

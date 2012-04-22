@@ -16,6 +16,8 @@ Item {
     anchors.right: parent.right
     height: 100
 
+    property int spacing: 15
+
 
     Image {
         id: productImage
@@ -47,7 +49,7 @@ Item {
     ProductFunctionButton {
         id: cautionButton
         anchors.right: favoriteButton.left
-        anchors.rightMargin: 20
+        anchors.rightMargin: container.spacing
         anchors.verticalCenter: parent.verticalCenter
         source: "../images/caution.png"
 
@@ -55,14 +57,16 @@ Item {
 
         property bool hasAllergens: allergens
         onClicked: {
-            hasAllergens = !hasAllergens
+            if (!hasAllergens) {
+                notificationPop.show(translator.noAllergensText);
+            }
         }
     }
 
     ProductFunctionButton {
         id: favoriteButton
         anchors.right: directionsButton.left
-        anchors.rightMargin: 20
+        anchors.rightMargin: container.spacing
         anchors.verticalCenter: parent.verticalCenter
         source: "../images/favorite.png"
 
@@ -71,6 +75,13 @@ Item {
         property bool isFavorite: favorite
         onClicked: {
             isFavorite = !isFavorite
+            if (isFavorite) {
+                dbi.addFavorite(id);
+                notificationPop.show(qsTr("%1:  %2").arg(translator.addFavoriteText).arg(name));
+            } else {
+                dbi.removeFavorite(id);
+                notificationPop.show(qsTr("%1:  %2").arg(translator.removeFavoriteText).arg(name));
+            }
         }
 
         Behavior on opacity {
@@ -83,9 +94,13 @@ Item {
     ProductFunctionButton {
         id: directionsButton
         anchors.right: productInfoButton.left
-        anchors.rightMargin: 20
+        anchors.rightMargin: container.spacing
         anchors.verticalCenter: parent.verticalCenter
         source: "../images/directions.png"
+
+        onClicked: {
+
+        }
     }
 
 
@@ -93,14 +108,18 @@ Item {
     ProductFunctionButton {
         id: productInfoButton
         anchors.right: buyButton.left
-        anchors.rightMargin: 20
+        anchors.rightMargin: container.spacing
         anchors.verticalCenter: parent.verticalCenter
         source: "../images/document.png"
+
+        onClicked: {
+
+        }
     }
 
     Button {
         id: buyButton
-        label: parseFloat(price).toFixed(2)
+        label: dbi.currencyExchange(price, settings.preferredCurrencyCode)
         width: 70
         height: 30
         anchors.right: parent.right
@@ -110,7 +129,7 @@ Item {
             settings.totalCartItems += 1
             settings.totalPrice += parseFloat(price);
 
-            notificationPop.show(qsTr("Added %1 to cart...").arg(name));
+            notificationPop.show(qsTr("%1:  %2").arg(translator.addToCartText).arg(name));
         }
     }
 }

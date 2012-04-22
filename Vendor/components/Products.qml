@@ -14,6 +14,11 @@ SimplePage {
     id: container
 
 
+    function showCategory(cat) {
+        categoriesTab.selected = false;
+        categoriesTab.selected = true;
+    }
+
     Item {
         id: filterArea
         anchors.left: parent.left
@@ -43,7 +48,7 @@ SimplePage {
 
             onSelectedChanged: {
                 if (selected) {
-
+                    productsArea.refresh("All");
                 }
             }
         }
@@ -65,6 +70,13 @@ SimplePage {
                 categoriesTab.selected = false;
             }
 
+            onSelectedChanged: {
+                if (selected) {
+                    productsArea.refresh("Favorites");
+                }
+
+            }
+
         }
 
         Tab {
@@ -79,17 +91,31 @@ SimplePage {
             text: translator.categoriesText
 
             onClicked: {
-                allItemsTab.selected = false;
-                favoritesTab.selected = false;
-                categoriesTab.selected = true;
+                productsContainer.showPage("CategorySelection");
             }
 
+            onSelectedChanged: {
+                if (selected) {
+                    allItemsTab.selected = false;
+                    favoritesTab.selected = false;
+                    categoriesTab.selected = true;
+
+                    label = "[ " + settings.selectedCategory + " ]"
+
+                    productsArea.refresh("Category", settings.selectedCategory);
+                } else {
+                    label = translator.categoriesText
+                }
+            }
         }
 
     }  //  filterArea
 
 
     SimplePage {
+
+        pageName: "ProductsArea"
+
         id: productsArea
         fill: false
         anchors.margins: 5
@@ -106,8 +132,32 @@ SimplePage {
             model: ListModel { id: productsListModel }
             delegate: ProductDelegate { id: productDelegate }
 
-            Component.onCompleted: dbi.importAllProducts(productsListModel);
+            Component.onCompleted: dbi.importProducts(productsListModel, "All");
+        }
 
+        property string refreshType: ""
+        property string selectedCategory: ""
+        property bool refreshing: false
+        function refresh(type, category) {
+            refreshType = type ? type : "";
+            selectedCategory = category ? category : ""
+            refreshing = true;
+            //visible = false;
+            hide();
+        }
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 200
+            }
+        }
+
+        onOpacityChanged: {
+            if (!refreshing || opacity !== 0)
+                return;
+            refreshing = false;
+            dbi.importProducts(productsListModel, refreshType, selectedCategory);
+            show();
         }
     }
 }

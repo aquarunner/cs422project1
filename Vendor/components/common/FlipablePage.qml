@@ -1,5 +1,5 @@
 /*
- * File: Flipper.qml
+ * File: FlipablePage.qml
  * Description: Reusable QML item
  * Author: dyoung24@uic.edu
  * Instructor: Johnson

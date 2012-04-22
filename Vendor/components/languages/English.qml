@@ -15,4 +15,10 @@ Item {
     property string favoritesText: "Favorites"
     property string categoriesText: "Categories"
     property string imageUnavailableText: "IMAGE UNAVAILABLE"
+    property string noAllergensText: "No allergen warnings present."
+    property string addFavoriteText: "Added to favorites"
+    property string removeFavoriteText: "Removed from favorites"
+    property string addToCartText: "Added to cart"
+    property string removeFromCartText: "Removed from cart"
+    property string categorySelectionMessageText: "Choose from the available categories:"
 }

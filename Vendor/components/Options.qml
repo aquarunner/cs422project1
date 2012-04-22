@@ -12,6 +12,39 @@ import "common"
 
 SimplePage {
 
+    FlickablePage {
+        id: optionsFlickable
+        anchors.bottom: optionsBackButton.top
+
+        Column {
+            id: optionsContainer
+            anchors.top: parent.top
+            //anchors.horizontalCenter: parent.horizontalCenter
+            anchors.fill: parent
+            property int optionItemHeight: 100
+            property int optionDescWidth: parent.width * 0.7
+            property int optionValueWidth: parent.width * 0.3
+            spacing: 5
+
+
+            // Each row has a pair of elemens.  Option description and option value
+            Row {
+                width: parent.width
+                spacing: 5
+
+                Item {
+                    width: optionsContainer.optionDescWidth
+                    height: optionsContainer.optionItemHeight
+                }
+                Item {
+                    width: optionsContainer.optionValueWidth
+                    height: optionsContainer.optionItemHeight
+                }
+            }
+
+        }
+    }
+
     Button {
         id: optionsBackButton
         anchors.bottom: parent.bottom
