@@ -28,8 +28,8 @@ MultiPage {
         pageName: "ProductFacts"
     }
 
-    ProductAllergens {
-        pageName: "ProductAllergens"
+    AllergenWarning {
+        pageName: "AllergenWarning"
     }
 
     CategorySelection {

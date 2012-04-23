@@ -183,8 +183,6 @@ Rectangle {
 
 
 
-
-
     PopUp {
         id: notificationPop
     }

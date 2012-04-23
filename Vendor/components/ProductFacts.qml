@@ -10,7 +10,27 @@
 import QtQuick 1.0
 import "common"
 
-FlipablePage {
-    id: container
+SimplePage {
 
+
+
+
+    ProductHeader {
+        id: factsHeader
+        label: translator.productInfo
+    }
+
+
+
+    Button {
+        id: helpBackButton
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottomMargin: 10
+        label: translator.backToItemsText
+
+        onClicked: {
+            productsContainer.showPage("Products");
+        }
+    }
 }
