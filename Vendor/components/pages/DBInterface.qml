@@ -16,9 +16,9 @@ Item {
     /* Properties
      */
 
-    property string productDataSource: "models/ProductsModel.qml"
-    property string machineDataSource: "models/MachinesModel.qml"
-    property string currencyDataSource: "models/CurrenciesModel.qml"
+    property string productDataSource: "../models/ProductsModel.qml"
+    property string machineDataSource: "../models/MachinesModel.qml"
+    property string currencyDataSource: "../models/CurrenciesModel.qml"
 
     property string dbName: settings.appName + "DB"
     property string dbVer: "1.0"
