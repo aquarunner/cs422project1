@@ -28,4 +28,5 @@ Item {
     property string warningFor: "Warning for "
     property string warningYes: "Yes - Buy It Now"
     property string warningNo: "No - Back To Items"
+    property string backToCartText: "Back To Cart"
 }

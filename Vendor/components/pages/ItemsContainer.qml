@@ -35,7 +35,7 @@ MultiPage {
 
 
     ProductMap {
-        id: productMap
+        id: productMapPage
         pageName: "ProductMap"
     }
 
@@ -43,7 +43,14 @@ MultiPage {
 
 
     ProductFacts {
-        id: productFacts
+        id: productFactsPage
         pageName: "ProductFacts"
+    }
+
+
+
+    AllergenWarning {
+        id: allergenWarningPage
+        pageName: "AllergenWarning"
     }
 }

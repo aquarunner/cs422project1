@@ -15,22 +15,16 @@ SimplePage {
 
 
 
-    ProductHeader {
+    Header {
         id: factsHeader
         label: translator.productInfo
     }
 
 
 
-    Button {
-        id: helpBackButton
+    BackButton {
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottomMargin: 10
-        label: translator.backToItemsText
-
-        onClicked: {
-            productsContainer.showPage("Products");
-        }
     }
 }

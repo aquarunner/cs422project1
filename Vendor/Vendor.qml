@@ -36,7 +36,7 @@ Item {
     FlipablePage {
         id: vendorFlip
         front: Welcome {}
-        back: Main {}
+        back: Main { id: main }
     }
 
 

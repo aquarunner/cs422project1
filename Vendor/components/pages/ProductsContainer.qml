@@ -20,17 +20,6 @@ MultiPage {
         pageName: "Products"
     }
 
-    ProductMap {
-        pageName: "ProductMap"
-    }
-
-    ProductFacts {
-        pageName: "ProductFacts"
-    }
-
-    AllergenWarning {
-        pageName: "AllergenWarning"
-    }
 
     CategorySelection {
         pageName: "CategorySelection"

@@ -19,15 +19,6 @@ SimplePage {
         categoriesTab.selected = true;
     }
 
-    function addToCart(id) {
-        settings.totalCartItems += 1
-
-        var prod = dbi.getProductInfo(id);
-        settings.totalPrice += parseFloat(prod.price);
-
-        notificationPop.show(qsTr("%1:  %2").arg(translator.addToCartText).arg(prod.name));
-    }
-
     Item {
         id: filterArea
         anchors.left: parent.left
