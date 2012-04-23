@@ -300,4 +300,17 @@ Item {
             console.log("removeFavorite: Incorrect rows affected: " +  result.rowsAffected);
         }
     }
+
+
+    function getProductInfo(id) {
+        var sqlStatement = "SELECT * FROM Products WHERE id = " + id;
+        var result = doSql(sqlStatement);
+
+        if (result.rows.length !== 1) {
+            console.log("getProductInfo: Incorrect row length: " +  result.rows.length);
+        }
+
+        return result.rows.item(0);
+
+    }
 }

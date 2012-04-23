@@ -12,4 +12,10 @@ import "common"
 
 SimplePage {
     id: container
+
+    Button {
+        onClicked: {
+            vendorFlip.showBack();
+        }
+    }
 }

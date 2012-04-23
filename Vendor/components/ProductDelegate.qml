@@ -59,6 +59,9 @@ Item {
         onClicked: {
             if (!hasAllergens) {
                 notificationPop.show(translator.noAllergensText);
+            } else {
+                var message = translator.allergensContainedText + allergens
+                notificationPop.show(message);
             }
         }
     }
@@ -99,7 +102,8 @@ Item {
         source: "../images/directions.png"
 
         onClicked: {
-
+            settings.selectedProductID = id
+            productsContainer.showPage("ProductMap");
         }
     }
 
@@ -113,7 +117,8 @@ Item {
         source: "../images/document.png"
 
         onClicked: {
-
+            settings.selectedProductID = id
+            productsContainer.showPage("ProductFacts");
         }
     }
 
@@ -126,10 +131,12 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
 
         onClicked: {
-            settings.totalCartItems += 1
-            settings.totalPrice += parseFloat(price);
-
-            notificationPop.show(qsTr("%1:  %2").arg(translator.addToCartText).arg(name));
+            if (allergens) {
+                settings.selectedProductID = id;
+                productsContainer.showPage("AllergenWarning");
+            } else {
+                productsPage.addToCart(id);
+            }
         }
     }
 }

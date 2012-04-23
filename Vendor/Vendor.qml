@@ -23,10 +23,8 @@ Item {
     height: 640
 
    Component.onCompleted: {
-        // If this is the first time running the program,
-        // show the welcome page.
-        if (settings.firstRun) {
-            //vendorFlip.showBack();
+        if (settings.firstRun == false) {
+            vendorFlip.showBack();
         }
 
 
@@ -38,8 +36,8 @@ Item {
 
     FlipablePage {
         id: vendorFlip
-        front: Main {}
-        back: Welcome {}
+        front: Welcome {}
+        back: Main {}
     }
 
 

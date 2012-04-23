@@ -1,13 +1,12 @@
 import QtQuick 1.0
-import "common"
+//import "common"
 
 Rectangle {
     id: container
     width: parent.width / 2
     height: 50
     anchors.horizontalCenter: parent.horizontalCenter
-    y: parent.height * 0.6
-    //z: 1
+    y: parent.height * 0.2
     color: "#111111"
     radius: 6
     border.color: "#888888"

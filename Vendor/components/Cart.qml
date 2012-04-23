@@ -29,30 +29,17 @@ SimplePage {
         id: cart
         visible: settings.totalCartItems !== 0
 
-        Item {
+
+        ProductHeader {
             id: cartHeader
-            anchors.top: parent.top
-            anchors.right: parent.right
-            anchors.left: parent.left
-            height: 30
-            clip: true
-
-            Tab  {
-                id: cartHeaderTab
-                width: parent.width - 10
-                height: parent.height
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                anchors.top: parent.top
-                anchors.topMargin: 5
-
-                text: translator.cartHeaderMessageText
-                selected: true
-            }
-        } // cartHeader
+            label: translator.cartHeaderMessageText
+        }
 
 
         // Cart list view
+
+
+
     }
 
 }
