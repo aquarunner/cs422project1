@@ -28,7 +28,6 @@ SimplePage {
 
     SimplePage {
         id: cart
-        visible: settings.totalCartItems !== 0
         fill: false
         anchors.top: parent.top
         anchors.left: parent.left
@@ -49,6 +48,7 @@ SimplePage {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
+
 
 
             ListView {

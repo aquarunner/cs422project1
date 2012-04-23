@@ -142,6 +142,9 @@ Item {
                 settings.totalPrice -= price;
                 settings.cartItems = settings.cartItems.replace(" " + id,"");
                 cartListModel.remove(index);
+                if (settings.totalCartItems === 0) {
+                    //cartArea.hide();
+                }
             }
 
         }
