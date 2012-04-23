@@ -198,7 +198,7 @@ Item {
     }
 
 
-    // type is All or Favorites
+    // type is All, Favorites or Category
     function importProducts(model, type, category) {
 
         var sqlStatement;
@@ -244,6 +244,29 @@ Item {
         return true;
     }
 
+
+    function importCartItems(model, itemsString) {
+
+        model.clear();
+        var sqlStatement;
+        var result;
+
+        if (itemsString === "") {
+            console.log("importCartItems: itemsString was empty");
+            return;
+        }
+
+        // Trim followed by squish followed by split
+        var items = itemsString.replace(/^\s/,"").replace(/\s+/g," ").split(" ");
+
+        for (var i = 0; i < items.length; ++i) {
+            sqlStatement = "SELECT * FROM Products WHERE id = " + items[i];
+            result = doSql(sqlStatement);
+            reload(model, result.rows);
+        }
+
+        return true;
+    }
 
     function reload(model, r) {
 

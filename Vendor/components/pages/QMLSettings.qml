@@ -23,5 +23,7 @@ Item {
     property string selectedCategory: ""
     property string selectedProductID: ""
     property int canvasPointSize: 11
+    property string cartItems: ""
+    property color productColor: "khaki"
 
 }

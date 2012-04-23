@@ -10,41 +10,13 @@
 import QtQuick 1.0
 import "../common"
 
-SimplePage {
+MultiPage {
     id: container
-    anchors.fill: parent
+
+    Component.onCompleted: showPage("Cart");
 
     Cart {
-        fill: false
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: cartControlArea.top
+        id: cartPage
+        pageName: "Cart"
     }
-
-    Row {
-        id: cartControlArea
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 5
-        spacing: 20
-
-        Button {
-            id: cartBackButton
-            width: 160
-            label: translator.backToItemsText
-            onClicked: {
-                itemsPage.flip();
-            }
-        }
-
-        Button {
-            id: checkoutButton
-            visible: settings.totalCartItems !== 0
-            anchors.margins: 10
-            width: 160
-            label: translator.checkoutText
-        }
-    }
-
 }

@@ -11,6 +11,7 @@ import QtQuick 1.0
 
 SimplePage {
     id: container
+    property string currentPage: ""
 
     Component.onCompleted: {
         hideAll();
@@ -28,6 +29,7 @@ SimplePage {
             i++;
             o = container.children[i];
         }
+        container.currentPage = "";
     }
 
 
@@ -40,6 +42,7 @@ SimplePage {
         while (o !== undefined) {
             if (o.pageName === page) {
                 o.show();
+                container.currentPage = page;
                 //o.visible = true;
                 return;
             }

@@ -4,7 +4,7 @@ import QtQuick 1.0
 Rectangle {
     id: container
     width: parent.width / 2
-    height: 50
+    height: 60
     anchors.horizontalCenter: parent.horizontalCenter
     y: parent.height * 0.2
     color: "#111111"
@@ -33,6 +33,7 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         wrapMode: Text.Wrap
         font.bold: true
+        font.pointSize: settings.canvasPointSize
         font.letterSpacing: 1
         color: "white"
     }

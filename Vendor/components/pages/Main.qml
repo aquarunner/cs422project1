@@ -51,7 +51,7 @@ Rectangle {
 
 
         ItemsContainer {
-            //id: itemsContainer
+            id: itemsContainer
             pageName: "Items"
         }
 
@@ -186,5 +186,23 @@ Rectangle {
     PopUp {
         id: notificationPop
     }
+
+
+
+
+
+
+
+    function addToCart(id) {
+        settings.totalCartItems += 1
+        var prod = dbi.getProductInfo(id);
+        settings.totalPrice += parseFloat(prod.price);
+
+        settings.cartItems += " " + prod.id;
+        //notificationPop.show(settings.cartItems)
+        //var i = "this is    a test".replace(/  +/g, " ").split(" ");
+        notificationPop.show(qsTr("%1:  %2").arg(translator.addToCartText).arg(prod.name));
+    }
+
 
 }

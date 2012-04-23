@@ -35,7 +35,7 @@ Item {
     Text {
         id: productName
         text: name
-        color: "white"
+        color: settings.productColor
         font.bold: true
         anchors.left: parent.left
         anchors.top: productImage.bottom
@@ -103,7 +103,7 @@ Item {
 
         onClicked: {
             settings.selectedProductID = id
-            productsContainer.showPage("ProductMap");
+            itemsContainer.showPage("ProductMap");
         }
     }
 
@@ -118,7 +118,7 @@ Item {
 
         onClicked: {
             settings.selectedProductID = id
-            productsContainer.showPage("ProductFacts");
+            itemsContainer.showPage("ProductFacts");
         }
     }
 
@@ -133,9 +133,9 @@ Item {
         onClicked: {
             if (allergens) {
                 settings.selectedProductID = id;
-                productsContainer.showPage("AllergenWarning");
+                itemsContainer.showPage("AllergenWarning");
             } else {
-                productsPage.addToCart(id);
+                main.addToCart(id);
             }
         }
     }
