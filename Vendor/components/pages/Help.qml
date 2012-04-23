@@ -8,7 +8,7 @@
  */
 
 import QtQuick 1.0
-import "common"
+import "../common"
 
 SimplePage {
 

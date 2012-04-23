@@ -8,7 +8,7 @@
  */
 
 import QtQuick 1.0
-import "common"
+import "../common"
 
 Rectangle {
     id: container
@@ -100,7 +100,7 @@ Rectangle {
 
             Image {
                 id: optionsButtonImage
-                source: "images/options.png"
+                source: "../images/options.png"
                 anchors.centerIn: parent
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectFit

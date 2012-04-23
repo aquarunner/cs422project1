@@ -7,9 +7,8 @@
  */
 
 import QtQuick 1.0
-import "components"
+import "components/pages"
 import "components/common"
-//import Custom 1.0
 
 Item {
     id: vendor

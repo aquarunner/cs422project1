@@ -31,7 +31,7 @@ Rectangle {
 
     Image {
         id: cartImage
-        source: "images/cart.png" //settings.totalCartItems ? "images/cart_full.png" : "images/cart_empty.png"
+        source: "../images/cart.png"
         width: 70
         height: 70
         anchors.left: parent.left
