@@ -75,7 +75,7 @@ Rectangle {
 
         Text {
             id: totalPriceMessage
-            text: translator.totalPriceMessageText
+            text: translator.totalPriceMessageText + " (" + settings.preferredCurrencyCode + ")"
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
