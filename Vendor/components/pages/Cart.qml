@@ -73,7 +73,7 @@ SimplePage {
                 id: moreImage
                 source: "../images/down.png"
                 anchors.bottom: parent.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.left: parent.left
                 visible: !cartListView.atYEnd
             }
         }
