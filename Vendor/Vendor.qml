@@ -41,7 +41,7 @@ Item {
 
 
     property alias settings: qmlsettings
-    QMLSettings {
+    DefaultSettings {
         id: qmlsettings
     }
 

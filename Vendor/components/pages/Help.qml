@@ -42,17 +42,10 @@ SimplePage {
         id: moreImage
         source: "../images/down.png"
         anchors.top: helpContainer.bottom
-        anchors.horizontalCenter: helpContainer.horizontalCenter
+        anchors.left: helpContainer.left
         visible: !helpContainer.atYEnd
     }
 
-
-//    Item {
-//        id: moreArea
-//        anchors.left: parent.left
-//        anchors.right: parent.right
-//        anchors.top: helpContainer.bo
-//    }
 
     Button {
         id: helpBackButton
