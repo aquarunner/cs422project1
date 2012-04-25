@@ -75,7 +75,7 @@ Rectangle {
 
         Text {
             id: totalPriceMessage
-            text: translator.totalPriceMessageText + " (" + settings.preferredCurrencyCode + ")"
+            text: translator.totalPriceMessageText// + " (" + settings.preferredCurrencyCode + ")"
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
@@ -89,7 +89,7 @@ Rectangle {
         Text {
             property string exchange: dbi.currencyExchange(settings.totalPrice, settings.preferredCurrencyCode)
             id: totalPriceText
-            text: exchange
+            text: qsTr("%1  %2").arg(settings.preferredCurrencyCode).arg(exchange)
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10

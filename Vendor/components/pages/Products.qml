@@ -127,13 +127,25 @@ SimplePage {
 
         ListView {
             id: productsListView
-            anchors.fill: parent
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: moreImage.top
             clip: true
             model: ListModel { id: productsListModel }
             delegate: ProductDelegate { id: productDelegate }
 
             Component.onCompleted: dbi.importProducts(productsListModel, "All");
         }
+
+        Image {
+            id: moreImage
+            source: "../images/down.png"
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            visible: !productsListView.atYEnd
+        }
+
 
         property string refreshType: ""
         property string selectedCategory: ""

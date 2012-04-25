@@ -19,4 +19,12 @@ MultiPage {
         id: cartPage
         pageName: "Cart"
     }
+
+
+    FlipablePage {
+        id: checkoutPage
+        pageName: "CheckoutPage"
+        front: CheckoutConfirm {}
+        back: CheckoutForm {}
+    }
 }

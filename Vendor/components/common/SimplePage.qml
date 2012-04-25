@@ -19,6 +19,9 @@ Item {
     property bool showing: true
     property bool fill: true
 
+    signal accepted()
+    signal dismissed()
+
     Behavior on opacity {
         NumberAnimation {
             duration: 250

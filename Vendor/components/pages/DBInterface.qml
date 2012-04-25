@@ -48,6 +48,7 @@ Item {
                             tx.executeSql("DROP TABLE IF EXISTS Machines");
                             tx.executeSql("DROP TABLE IF EXISTS Currencies");
                             tx.executeSql("DROP TABLE IF EXISTS Settings");
+                            tx.executeSql("DROP TABLE IF EXISTS History");
                         } catch(error) {
                             console.log("resetDB: " + error);
                         }
@@ -97,20 +98,21 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INTEGER PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite TEXT, allergens TEXT, machines TEXT)";
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INTEGER PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite TEXT, allergens TEXT, machines TEXT, nutritionData TEXT)";
             result = doSql(sqlStatement);
 
             model = component.createObject(null);
 
             for (i = 0; i < model.count; ++i) {
-                sqlStatement = "INSERT INTO Products(name,price,image,category,favorite,allergens,machines) VALUES('" +
+                sqlStatement = "INSERT INTO Products(name,price,image,category,favorite,allergens,machines,nutritionData) VALUES('" +
                         model.get(i).name + "'," +
                         model.get(i).price + ",'" +
                         model.get(i).image + "','" +
                         model.get(i).category + "','" +
                         model.get(i).favorite+ "','" +
                         model.get(i).allergens + "','" +
-                        model.get(i).machines + "')";
+                        model.get(i).machines + "','" +
+                        model.get(i).nutritionData + "')";
                 doSql(sqlStatement);
             }
         }
@@ -124,14 +126,16 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Machines(id INTEGER PRIMARY KEY, map TEXT)";
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Machines(id INTEGER PRIMARY KEY, map TEXT, description TEXT, inventory TEXT)";
             result = doSql(sqlStatement);
 
             model = component.createObject(null);
 
             for (i = 0; i < model.count; ++i) {
-                sqlStatement = "INSERT INTO Machines(map) VALUES('" +
-                        model.get(i).map + "')";
+                sqlStatement = "INSERT INTO Machines(map,description,inventory) VALUES('" +
+                        model.get(i).map + "','" +
+                        model.get(i).description + "','" +
+                        model.get(i).inventory + "')";
                 doSql(sqlStatement);
             }
         }
@@ -163,6 +167,12 @@ Item {
         /* Create the settings table
          */
         sqlStatement = "CREATE TABLE IF NOT EXISTS Settings(key TEXT, val TEXT)";
+        result = doSql(sqlStatement);
+
+
+        /* Create the history table
+         */
+        sqlStatement = "CREATE TABLE IF NOT EXISTS History(id INTEGER PRIMARY KEY, prod_id TEXT, timestamp TEXT)";
         result = doSql(sqlStatement);
 
         initialized = true;
@@ -213,7 +223,7 @@ Item {
         var r = results.rows;
 
         if (r.length === 0) {
-            console.log("importProducts: no results");
+            //console.log("importProducts: no results");
         }
 
         model.clear();
@@ -221,6 +231,31 @@ Item {
         return true;
 
     }
+
+
+    function importHistory(model) {
+
+        var sqlStatement = "SELECT * FROM History";
+        var results = doSql(sqlStatement);
+
+        var p;
+        var r = results.rows;
+
+        if (r.length === 0) {
+            //console.log("importHistory: no results");
+        }
+
+        model.clear();
+
+        for (var i = 0; i < r.length; i++) {
+
+            p = getProductInfo(r.item(i).prod_id);
+            model.append({"name": p.name, "timestamp": r.item(i).timestamp});
+        }
+
+        return true;
+    }
+
 
 
 
@@ -232,7 +267,7 @@ Item {
         var r = results.rows;
 
         if (r.length === 0) {
-            console.log("importByCategory: no results");
+            //console.log("importByCategory: no results");
         }
 
         model.clear();
@@ -252,12 +287,11 @@ Item {
         var result;
 
         if (itemsString === "") {
-            console.log("importCartItems: itemsString was empty");
+            //console.log("importCartItems: itemsString was empty");
             return;
         }
 
-        // Trim followed by squish followed by split
-        var items = itemsString.replace(/^\s/,"").replace(/\s+/g," ").split(" ");
+        var items = main.trim(itemsString).split(" ");
 
         for (var i = 0; i < items.length; ++i) {
             sqlStatement = "SELECT * FROM Products WHERE id = " + items[i];
@@ -279,7 +313,8 @@ Item {
                              "category": r.item(i).category,
                              "favorite": r.item(i).favorite,
                              "allergens": r.item(i).allergens,
-                             "machines": r.item(i).machines
+                             "machines": r.item(i).machines,
+                             "nutritionData": r.item(i).nutritionData
                          });
 
         }
@@ -288,15 +323,15 @@ Item {
     function currencyExchange(price, currencyCode) {
 
         if (price === 0) {
-            return "0"
+            return "0";
         }
 
         var sqlStatement = "SELECT rate FROM Currencies WHERE code = '" + currencyCode + "'";
         var result = doSql(sqlStatement);
 
         if (result.rows.length !== 1) {
-            console.log("currencyExchange: no results");
-            return 0;
+            console.log("currencyExchange: incorrect row length: " + result.rows.length);
+            return "0";
         }
 
         var rate = result.rows.item(0).rate;
@@ -336,4 +371,42 @@ Item {
         return result.rows.item(0);
 
     }
+
+    function getMachineInfo(id) {
+        var sqlStatement = "SELECT * FROM Machines WHERE id = " + id;
+        var result = doSql(sqlStatement);
+
+        if (result.rows.length !== 1) {
+            console.log("getMachineInfo: Incorrect row length: " +  result.rows.length);
+        }
+
+        return result.rows.item(0);
+
+    }
+
+
+
+    function addToHistory(itemsString) {
+
+        var items = main.trim(itemsString).split(" ");
+
+        var sqlStatement;
+        var result;
+        var d = new Date();
+
+        var timestamp = d.toLocaleString();
+
+        for (var i = 0; i < items.length; ++i) {
+            sqlStatement = "INSERT INTO History (prod_id, timestamp) VALUES (" + items[i] + ", '" + timestamp + "')";
+            result = doSql(sqlStatement);
+        }
+
+    }
+
+    function clearHistory() {
+        var sqlStatement = "DELETE FROM History";
+        var result = doSql(sqlStatement);
+
+    }
+
 }

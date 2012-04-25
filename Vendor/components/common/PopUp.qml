@@ -60,4 +60,8 @@ Rectangle {
         }
     }
 
+    MouseArea {
+        anchors.fill: parent
+        onClicked: container.showing = false;
+    }
 }

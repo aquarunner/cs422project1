@@ -4,6 +4,16 @@ import QtQuick 1.0
 Item {
     id: container
 
+    property string emptyHistoryText: "No Items In History"
+    property string clearText: "Clear"
+    property string purchaseHistoryText: "Purchase History"
+    property string notSetText: "Not Set"
+    property string setText: "Set"
+    property string paymentMethodText: "Payment Method"
+    property string restrictedItemsText: "Restricted Items"
+    property string currencyText: "Currency"
+    property string preferencesText: "Preferences"
+    property string languageText: "Language"
     property string quitText: "Quit"
     property string checkoutText: "Checkout"
     property string backToItemsText: "Back To Items"
@@ -29,4 +39,68 @@ Item {
     property string warningYes: "Yes - Buy It Now"
     property string warningNo: "No - Back To Items"
     property string backToCartText: "Back To Cart"
+    property string outOfStockText: "Out Of Stock"
+    property string mapHintText: "You may find this item at "
+
+    property string helpText: "
+<html>
+<center><h1>Vendor Manager Help</h1></center>
+<p>This application will allow you to quickly locate food items and purchase them from nearby vending machines.</p>
+
+<table width='100%' cellspacing='10'>
+<tr>
+<td valign='middle'><b>Options</b>. Touch this icon to open the options panel.</td>
+<td width='40' align='right'><img src='../images/options.png' width='40' height='40' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>All Items</b>.  Touching here will re-organize the items view so that all available items from all vending machines can be selected.</td>
+<td align='right'><img src='../images/help_allitems.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Favorites</b>.  Touch here to hide all but your favorite items in the items selection.</td>
+<td align='right'><img src='../images/help_favorites.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Categories</b>.  This will provide you with a selection of item categories.  Only the items from the selected category will be shown.</td>
+<td align='right'><img src='../images/help_categories.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Buy</b>.  The text of this button indicates the prices of the item in that row, according to your currency preference.  Press this button to add the item to your cart.</td>
+<td align='right'><img src='../images/help_buy.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Caution</b>.  This icon will illuminate if the product in that row contains allergens you wish to avoid.  Press the icon for additional detail.</td>
+<td align='right'><img src='../images/caution.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Add/Remove Favorite</b>.  Use this button to toggle favorite items.</td>
+<td align='right'><img src='../images/favorite.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Directions</b>.  Press this button to find out where the item is located.  Since an item can be located at multiple machines, directions to the first one will be shown.</td>
+<td align='right'><img src='../images/directions.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Nutrition Information</b>.  Touching here will show you the nutrition information details for that product, so that you can be informed before making the purchase.</td>
+<td align='right'><img src='../images/document.png' height='30' /></td>
+</tr>
+
+<tr>
+<td valign='middle'><b>Cart</b>.  The cart button toggles the view between items and the cart, so that you can switch back and forth at any time, and quickly proceed to checkout.</td>
+<td align='right'><img src='../images/cart.png' height='40' /></td>
+</tr>
+
+</table>
+
+<p>For additional support please contact support@example.com or visit our website at http://code.google.com/p/cs422project1/</p>
+</html>
+"
 }
