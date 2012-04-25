@@ -104,6 +104,7 @@ Item {
         onClicked: {
             settings.selectedProductID = id
             itemsContainer.showPage("ProductMap");
+
         }
     }
 

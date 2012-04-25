@@ -12,7 +12,7 @@ import "../common"
 
 Rectangle {
     id: container
-    color: settings.vendorColor
+    color: settings.canvasColor
     anchors.fill: parent
 
 
@@ -60,7 +60,7 @@ Rectangle {
         FlipablePage {
             //id: optionsPage
             pageName: "Options"
-            front: Options {}
+            front: OptionsContainer {}
             //back: PersonalInfo {}
         }
 
@@ -125,7 +125,7 @@ Rectangle {
             anchors.left: optionsButton.right
             anchors.top: optionsButton.top
             anchors.leftMargin: 10
-            color: settings.vendorColor
+            color: settings.canvasColor
             radius: 4
             scale: helpMouseArea.pressed ? 0.9 : 1
             border.color: "black"
@@ -147,36 +147,27 @@ Rectangle {
             }
         }
 
-
-        Rectangle {
-            id: quitButton
-            color: settings.vendorColor
-            border.color: "black"
-            border.width: 0
-            width: 60
+        Image {
+            id: quitImage
+            source: "../images/quit.png"
+            width: 40
             height: 40
-            radius: 4
-            //anchors.bottom: parent.bottom
             anchors.top: optionsButton.top
             anchors.right: parent.right
-            anchors.bottomMargin: 10
             anchors.rightMargin: 10
             scale: quitButtonMouseArea.pressed ? 0.9 : 1
-
-
-            Text {
-                id: quitText
-                text: translator.quitText
-                anchors.centerIn: parent
-                font.pointSize: 14
-            }
 
             MouseArea {
                 id: quitButtonMouseArea
                 anchors.fill: parent
                 onClicked: Qt.quit();
             }
+
         }
+
+
+
+
     }
 
 
@@ -205,4 +196,21 @@ Rectangle {
     }
 
 
+
+    function checkout() {
+        settings.totalCartItems = 0
+        settings.totalPrice = 0
+        dbi.addToHistory(settings.cartItems);
+        settings.cartItems = ""
+    }
+
+
+
+
+    function trim(str) {
+
+        str = str.replace(/^\s/,"").replace(/\s+/g," ").replace(/ +$/,"");
+
+        return str;
+    }
 }

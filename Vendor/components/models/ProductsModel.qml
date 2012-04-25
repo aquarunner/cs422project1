@@ -19,8 +19,8 @@ ListModel{
         category: "Candy"
         favorite: ""
         allergens: ""
-        machines: "1 2 4 7"
-        nutritionData: ""
+        machines: "1 2 4 6"
+        nutritionData: "../images/nutrition/skittles.png"
     }
 
     ListElement {
@@ -40,7 +40,7 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: "peanuts"
-        machines: "4 7"
+        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -50,7 +50,7 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: ""
-        machines: "4 7"
+        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -60,7 +60,7 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: ""
-        machines: "4 7"
+        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -70,7 +70,7 @@ ListModel{
         category: "Cookies"
         favorite: "Yes"
         allergens: ""
-        machines: "4 7"
+        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -80,7 +80,7 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: ""
-        machines: "4 7"
+        machines: "4 6"
         nutritionData: ""
     }
 }

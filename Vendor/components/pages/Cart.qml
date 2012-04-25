@@ -53,7 +53,10 @@ SimplePage {
 
             ListView {
                 id: cartListView
-                anchors.fill: parent
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: moreImage.top
                 clip: true
                 model: ListModel { id: cartListModel }
                 delegate: CartDelegate { id: cartDelegate }
@@ -64,6 +67,14 @@ SimplePage {
                     }
                 }
 
+            }
+
+            Image {
+                id: moreImage
+                source: "../images/down.png"
+                anchors.bottom: parent.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                visible: !cartListView.atYEnd
             }
         }
 
@@ -93,6 +104,12 @@ SimplePage {
             anchors.margins: 10
             width: 160
             label: translator.checkoutText
+
+            onClicked: {
+                main.checkout();
+                cartListModel.clear();
+                itemsPage.showFront();
+            }
         }
     }
 

@@ -11,6 +11,48 @@ import QtQuick 1.0
 import "../common"
 
 SimplePage {
+    id: container
+
+
+    FlickablePage {
+        id: helpContainer
+        clip: true
+        fill: false
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: helpBackButton.top
+        anchors.margins: 10
+        contentHeight: helpText.paintedHeight
+
+        Text {
+            id: helpText
+            text: translator.helpText
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            color: "white"
+            wrapMode: Text.Wrap
+        }
+    }
+
+
+    Image {
+        id: moreImage
+        source: "../images/down.png"
+        anchors.top: helpContainer.bottom
+        anchors.horizontalCenter: helpContainer.horizontalCenter
+        visible: !helpContainer.atYEnd
+    }
+
+
+//    Item {
+//        id: moreArea
+//        anchors.left: parent.left
+//        anchors.right: parent.right
+//        anchors.top: helpContainer.bo
+//    }
 
     Button {
         id: helpBackButton
