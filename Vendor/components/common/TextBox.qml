@@ -5,33 +5,39 @@ import QtQuick 1.1
 Rectangle {
     id: container
     width: 120
-    height: 30 * container.lineHeight
+    height: 25 * container.lineHeight
     radius: 6
     border.color: borderColor
     border.width: 4
+    clip: true
 
     property color borderColor: "darkcyan"
     property string exampleText: "Example text..."
     property int lineHeight: 1
-    property string input: ""
+    property alias input: textInput.text
+    property bool fontBold: true
+    property int fontPointSize: 10
 
     Text {
         id: exampleText
-        opacity: 0.5
+        enabled: false
+        opacity: 0.3
         visible: !container.input
         text: container.exampleText
         anchors.fill: parent
         anchors.margins: 5
         font.italic: true
+        font.pointSize: container.fontPointSize
+        wrapMode: Text.Wrap
     }
-    TextEdit {
+    TextInput {
         id: textInput
-        text: container.input
         anchors.fill: parent
         anchors.margins: 5
+        font.bold: container.fontBold
+        font.pointSize: container.fontPointSize
+        //wrapMode: Text.Wrap
+        //maximumLength: 10
 
-        onTextChanged: {
-            container.input = text;
-        }
     }
 }
