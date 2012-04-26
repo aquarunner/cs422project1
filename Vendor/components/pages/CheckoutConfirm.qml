@@ -1,7 +1,78 @@
-// import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
-import QtQuick 1.1
+import QtQuick 1.0
+import "../common"
 
-Rectangle {
-    width: 100
-    height: 62
+MultiPage {
+    id: container
+
+    onVisibleChanged: {
+        if (container.visible) {
+            if (settings.savedCC) {
+                checkoutConfirm.showPage("PaymentForm");
+            } else {
+
+                checkoutConfirm.showPage("ConfirmPage");
+            }
+        }
+    }
+
+
+    SimplePage{
+        id: confirmPage
+        pageName: "ConfirmPage"
+
+        Column {
+            spacing: 50
+            anchors.centerIn: parent
+
+            OptionText {
+                text: translator.confirmText
+                width: container.width
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            OptionText {
+                text: settings.preferredCurrencyCode + " " + dbi.currencyExchange(settings.totalPrice, settings.preferredCurrencyCode)
+                width: container.width
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Button {
+                label: translator.confirmChargeText
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                onClicked: {
+                    main.checkout();
+                    itemsPage.showFront();
+                }
+            }
+
+            Button {
+                label: translator.backToItemsText
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                onClicked: {
+                    itemsPage.showFront();
+                }
+            }
+        }
+    }
+
+
+
+    PaymentForm {
+        pageName: "PaymentForm"
+
+        onAccepted: {
+            //settings.savedCC = true;
+            main.checkout();
+            itemsPage.showFront();
+            notificationPop("Purchase complete");
+        }
+
+        onDismissed: {
+            itemsPage.showFront();
+            notificationPop("Purchase canceled");
+        }
+
+    }
 }

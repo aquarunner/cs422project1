@@ -4,7 +4,12 @@ import QtQuick 1.0
 Item {
     id: container
 
+    property string paymentNameText: "Name"
+    property string paymentFormHintText: "Payment Form"
+    property string confirmChargeText: "Confirm Charge"
+    property string confirmText: "Confirm Charge To Saved Payment Info"
     property string currencyHintText: "Currency Selection"
+    property string saveAndCloseText: "Save & Close"
     property string closeText: "Close"
     property string resetText: "Reset"
     property string saveText: "Save"

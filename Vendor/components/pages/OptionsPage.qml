@@ -63,6 +63,7 @@ SimplePage {
 
                     OptionText {
                         text: translator.languageText
+                        anchors.leftMargin: 20
                     }
                 }
                 Item {
@@ -102,6 +103,7 @@ SimplePage {
 
                     OptionText {
                         text: translator.currencyText
+                        anchors.leftMargin: 20
                     }
                 }
                 Item {
@@ -150,6 +152,7 @@ SimplePage {
 
                     OptionText {
                         text: translator.restrictedItemsText
+                        anchors.leftMargin: 20
                     }
 
                 }
@@ -192,6 +195,7 @@ SimplePage {
 
                     OptionText {
                         text: translator.paymentMethodText
+                        anchors.leftMargin: 20
                     }
 
                 }
@@ -230,6 +234,7 @@ SimplePage {
 
                     OptionText {
                         text: translator.purchaseHistoryText
+                        anchors.leftMargin: 20
                     }
 
                 }
@@ -322,7 +327,8 @@ SimplePage {
         label: translator.backToItemsText
 
         onClicked: {
-            playArea.showPage("Items");
+            //playArea.showPage("Items");
+            container.dismissed();
         }
     }
 }

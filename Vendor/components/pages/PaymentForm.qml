@@ -14,12 +14,33 @@ SimplePage {
         anchors.bottom: saveButton.top
         anchors.margins: 5
 
-        Text {
-            //id: name
-            anchors.centerIn: parent
-            text: qsTr("text")
-        }
 
+        Column {
+            anchors.fill: parent
+            spacing: 5
+
+            OptionText {
+                text: translator.paymentFormHintText
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                anchors.topMargin: 20
+            }
+
+            TextBox {
+                id: paymentName
+                width: parent.width * 0.9
+                anchors.leftMargin: 20
+                anchors.left: parent.left
+            }
+
+            Text {
+                anchors.left: parent.left
+                anchors.leftMargin: 20
+                text: translator.paymentNameText
+                font.bold: true
+                color: "white"
+            }
+        }
 
     }
 
@@ -46,7 +67,8 @@ SimplePage {
         label: translator.saveText
 
         onClicked: {
-            notificationPop.show(playArea.currentPage);
+            //notificationPop.show(playArea.currentPage);
+            container.accepted()
         }
     }
 
