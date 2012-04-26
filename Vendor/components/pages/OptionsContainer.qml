@@ -1,7 +1,9 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: OptionsContainer.qml
+ * Description: Controls display of the list of options, as well as pages
+ *              for selection of those options, including Allergens, Lanuage,
+ *              Currency Code, and Payment Information.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -26,10 +28,12 @@ MultiPage {
         id: optionsPage
 
         onAccepted: {
+            dbi.exportPreferences();
             playArea.showPage("Items");
         }
 
         onDismissed: {
+            dbi.exportPreferences();
             playArea.showPage("Items");
         }
     }
@@ -77,6 +81,7 @@ MultiPage {
 
     PaymentForm {
         pageName: "PaymentForm"
+        parentPage: "Options"
 
         onAccepted: {
             optionsContainer.showPage("OptionsPage");

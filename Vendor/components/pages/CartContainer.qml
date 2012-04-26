@@ -1,7 +1,7 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: CartContainer.qml
+ * Description: Organizational helper for the cart and checkout pages.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012

@@ -1,7 +1,7 @@
 /*
  * File: Products.qml
- * Description: Displays a products listview as well as selection filters (favorites, categories).
- * Author: dyoung24@uic.edu
+ * Description: Displays a aggregate vending machine contents listview as well as selection filters (favorites, categories).
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012

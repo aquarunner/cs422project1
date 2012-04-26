@@ -1,3 +1,12 @@
+/*
+ * File: AllergenSelection.qml
+ * Description: Provides a list of allergens to select, which must be avoided when purchasing.
+ * Author: dyoung24
+ * Instructor: Johnson
+ * Course: CS 422
+ * Date: 4-26-2012
+ */
+
 import QtQuick 1.0
 import "../common"
 
@@ -93,8 +102,8 @@ SimplePage {
         label: translator.complaintMessageText
 
         onClicked: {
-            //optionsContainer.showPage("OptionsPage");
-            container.dismissed();
+            //playArea.showPage("Help");
+            //helpPage.showBack();
         }
     }
 

@@ -1,7 +1,7 @@
 /*
  * File: ProductAllergens.qml
- * Description:
- * Author: dyoung24@uic.edu
+ * Description: Displays a confirmation message when purchasing inappropriate items.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012

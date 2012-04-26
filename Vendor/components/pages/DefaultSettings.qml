@@ -1,7 +1,7 @@
 /*
  * File: DefaultSettings.qml
  * Description: Global application variables (read and write)
- * Author: dyoung24@uic.edu
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -14,7 +14,9 @@ Item {
 
     property string appName: "VendorManager"
     property color canvasColor: "#222222"
-    property bool firstRun: false
+    property bool firstRun: true
+    property bool showResetButton: true
+    property bool alwaysReset: false
     property bool initDBOnLoad: true
     property int totalCartItems: 0
     property real totalPrice: 0.0

@@ -43,6 +43,7 @@ SimplePage {
             if (o.pageName === page) {
                 o.show();
                 container.currentPage = page;
+                //console.log(page);
                 //o.visible = true;
                 return;
             }

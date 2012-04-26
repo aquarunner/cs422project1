@@ -4,6 +4,11 @@ import QtQuick 1.0
 Item {
     id: container
 
+    property string yesText: "Yes"
+    property string noText: "No"
+    property string welcomeText: "Welcome to Vendor Manager"
+    property string welcomeHint: "Would you like to store your payment information now?"
+    property string reportIssuesText: "Report Issues"
     property string cancelText: "Cancel"
     property string continueText: "Continue"
     property string futureSaveText: "Save Payment Info"
@@ -13,7 +18,7 @@ Item {
     property string paymentNameText: "Name On Card"
     property string paymentFormHintText: "Payment Details"
     property string confirmChargeText: "Confirm Charge"
-    property string confirmText: "Confirm Charge To Saved Payment Info"
+    property string confirmText: "Confirm Charge To Saved Credit Card"
     property string currencyHintText: "Currency Selection"
     property string saveAndCloseText: "Save & Close"
     property string closeText: "Close"

@@ -1,7 +1,7 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: DBInterface.qml
+ * Description: Procedures for interacting with local sqlite storage.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -25,7 +25,6 @@ Item {
     property string dbDesc: ""
     property int dbSize: 10000
 
-    property bool alwaysReset: true
     property bool initialized: false
 
     /* Functions
@@ -79,7 +78,7 @@ Item {
 
     function initialize() {
 
-        if (container.alwaysReset) {
+        if (settings.alwaysReset) {
             resetDB();
         }
 
@@ -98,22 +97,27 @@ Item {
             return;
         } else {
 
-            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INTEGER PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite TEXT, allergens TEXT, machines TEXT, nutritionData TEXT)";
-            result = doSql(sqlStatement);
+            sqlStatement = "CREATE TABLE IF NOT EXISTS Products(id INTEGER PRIMARY KEY, name TEXT, price REAL, image TEXT, category TEXT, favorite TEXT, allergens TEXT, nutritionData TEXT)";
+            doSql(sqlStatement);
 
-            model = component.createObject(null);
+            result = doSql("SELECT * FROM Products");
 
-            for (i = 0; i < model.count; ++i) {
-                sqlStatement = "INSERT INTO Products(name,price,image,category,favorite,allergens,machines,nutritionData) VALUES('" +
-                        model.get(i).name + "'," +
-                        model.get(i).price + ",'" +
-                        model.get(i).image + "','" +
-                        model.get(i).category + "','" +
-                        model.get(i).favorite+ "','" +
-                        model.get(i).allergens + "','" +
-                        model.get(i).machines + "','" +
-                        model.get(i).nutritionData + "')";
-                doSql(sqlStatement);
+            // Only import if table is not populated
+            if (result.rows.length === 0) {
+
+                model = component.createObject(null);
+
+                for (i = 0; i < model.count; ++i) {
+                    sqlStatement = "INSERT INTO Products(name,price,image,category,favorite,allergens,nutritionData) VALUES('" +
+                            model.get(i).name + "'," +
+                            model.get(i).price + ",'" +
+                            model.get(i).image + "','" +
+                            model.get(i).category + "','" +
+                            model.get(i).favorite+ "','" +
+                            model.get(i).allergens + "','" +
+                            model.get(i).nutritionData + "')";
+                    doSql(sqlStatement);
+                }
             }
         }
 
@@ -127,16 +131,22 @@ Item {
         } else {
 
             sqlStatement = "CREATE TABLE IF NOT EXISTS Machines(id INTEGER PRIMARY KEY, map TEXT, description TEXT, inventory TEXT)";
-            result = doSql(sqlStatement);
+            doSql(sqlStatement);
 
-            model = component.createObject(null);
+            result = doSql("SELECT * FROM Machines");
 
-            for (i = 0; i < model.count; ++i) {
-                sqlStatement = "INSERT INTO Machines(map,description,inventory) VALUES('" +
-                        model.get(i).map + "','" +
-                        model.get(i).description + "','" +
-                        model.get(i).inventory + "')";
-                doSql(sqlStatement);
+            // Only import if table is not populated
+            if (result.rows.length === 0) {
+
+                model = component.createObject(null);
+
+                for (i = 0; i < model.count; ++i) {
+                    sqlStatement = "INSERT INTO Machines(map,description,inventory) VALUES('" +
+                            model.get(i).map + "','" +
+                            model.get(i).description + "','" +
+                            model.get(i).inventory + "')";
+                    doSql(sqlStatement);
+                }
             }
         }
 
@@ -150,16 +160,22 @@ Item {
         } else {
 
             sqlStatement = "CREATE TABLE IF NOT EXISTS Currencies(id INTEGER PRIMARY KEY, name TEXT, rate REAL, code TEXT)";
-            result = doSql(sqlStatement);
+            doSql(sqlStatement);
 
-            model = component.createObject(null);
+            result = doSql("SELECT * FROM Currencies");
 
-            for (i = 0; i < model.count; ++i) {
-                sqlStatement = "INSERT INTO Currencies(name, rate, code) VALUES('" +
-                        model.get(i).name + "'," +
-                        model.get(i).rate + ",'" +
-                        model.get(i).code + "')";
-                doSql(sqlStatement);
+            // Only import if table is not populated
+            if (result.rows.length === 0) {
+
+                model = component.createObject(null);
+
+                for (i = 0; i < model.count; ++i) {
+                    sqlStatement = "INSERT INTO Currencies(name, rate, code) VALUES('" +
+                            model.get(i).name + "'," +
+                            model.get(i).rate + ",'" +
+                            model.get(i).code + "')";
+                    doSql(sqlStatement);
+                }
             }
         }
 
@@ -200,7 +216,7 @@ Item {
         var result = doSql(sqlStatement);
 
         if (result.rows.length !== 1) {
-            console.log("getSetting: no results!");
+            //console.log("getSetting: no results!");
             return "";
         } else {
             return result.rows.item(0).val;
@@ -336,7 +352,6 @@ Item {
                              "category": r.item(i).category,
                              "favorite": r.item(i).favorite,
                              "allergens": r.item(i).allergens,
-                             "machines": r.item(i).machines,
                              "nutritionData": r.item(i).nutritionData
                          });
 
@@ -346,7 +361,7 @@ Item {
     function currencyExchange(price, currencyCode) {
 
         if (price === 0) {
-            return "0";
+            return "0.0";
         }
 
         var sqlStatement = "SELECT rate FROM Currencies WHERE code = '" + currencyCode + "'";
@@ -432,4 +447,28 @@ Item {
 
     }
 
+
+
+    function exportPreferences() {
+        //setSetting("firstRun", settings.firstRun);
+        setSetting("preferredCurrencyCode", settings.preferredCurrencyCode);
+        setSetting("preferredLanguage", settings.preferredLanguage);
+        setSetting("paymentName", settings.paymentName);
+        setSetting("paymentNumber", settings.paymentNumber);
+        setSetting("paymentCVV", settings.paymentCVV);
+        setSetting("paymentExpiry", settings.paymentExpiry);
+        setSetting("restrictedItems", settings.restrictedItems);
+    }
+
+
+    function importPreferences() {
+        //settings.firstRun = getSetting("firstRun") ? true : true;
+        settings.preferredCurrencyCode = getSetting("preferredCurrencyCode") ? getSetting("preferredCurrencyCode") : settings.preferredCurrencyCode;
+        settings.preferredLanguage = getSetting("preferredLanguage") ? getSetting("preferredLanguage") : settings.preferredLanguage;
+        settings.paymentName = getSetting("paymentName");
+        settings.paymentNumber = getSetting("paymentNumber");
+        settings.paymentCVV = getSetting("paymentCVV");
+        settings.paymentExpiry = getSetting("paymentExpiry");
+        settings.restrictedItems = getSetting("restrictedItems");
+    }
 }

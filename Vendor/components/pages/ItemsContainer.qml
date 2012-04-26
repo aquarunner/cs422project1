@@ -1,7 +1,7 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File:ItemsContainer.qml
+ * Description: Organizational helper for product views, including the cart, the map and nutrition information.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -13,11 +13,19 @@ import "../common"
 MultiPage {
     id: container
 
-    Component.onCompleted: showPage("Items");
+    Component.onCompleted: {
+        container.showPage("ItemsPage");
+    }
+
+    onVisibleChanged: {
+        if (container.visible) {
+            container.showPage("ItemsPage");
+        }
+    }
 
 
     SimplePage {
-        pageName: "Items"
+        pageName: "ItemsPage"
 
         FlipablePage {
             id: itemsPage
