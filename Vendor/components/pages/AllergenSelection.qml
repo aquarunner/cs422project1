@@ -94,6 +94,7 @@ SimplePage {
 
         onClicked: {
             //optionsContainer.showPage("OptionsPage");
+            container.dismissed();
         }
     }
 
@@ -105,10 +106,11 @@ SimplePage {
         anchors.right: parent.right
         anchors.margins: 10
         width: 140
-        label: translator.closeText
+        label: translator.saveAndCloseText
 
         onClicked: {
-            optionsContainer.showPage("OptionsPage");
+            //optionsContainer.showPage("OptionsPage");
+            container.accepted();
         }
     }
 

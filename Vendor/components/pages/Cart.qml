@@ -94,7 +94,8 @@ SimplePage {
             width: 160
             label: translator.backToItemsText
             onClicked: {
-                itemsPage.flip();
+                //itemsPage.showFront();
+                container.dismissed();
             }
         }
 
@@ -106,9 +107,7 @@ SimplePage {
             label: translator.checkoutText
 
             onClicked: {
-                main.checkout();
-                cartListModel.clear();
-                itemsPage.showFront();
+                container.accepted();
             }
         }
     }

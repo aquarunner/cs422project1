@@ -97,7 +97,8 @@ SimplePage {
         label: translator.backToOptionsText
 
         onClicked: {
-            optionsContainer.showPage("OptionsPage");
+            //optionsContainer.showPage("OptionsPage");
+            container.dismissed();
         }
     }
 

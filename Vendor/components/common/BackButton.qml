@@ -8,10 +8,5 @@ Button {
 
     onClicked: {
         itemsContainer.showPage("Items");
-//        if (backButton.cartShowing) {
-//            cartContainer.showPage("Cart");
-//        } else {
-//            productsContainer.showPage("Products");
-//        }
     }
 }

@@ -59,11 +59,9 @@ Rectangle {
 
 
 
-        FlipablePage {
-            //id: optionsPage
+        OptionsContainer {
+            id: optionsContainer
             pageName: "Options"
-            front: OptionsContainer { id: optionsContainer }
-            //back: PersonalInfo {}
         }
 
 

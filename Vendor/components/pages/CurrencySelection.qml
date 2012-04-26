@@ -50,7 +50,8 @@ SimplePage {
                     onClicked: {
                         selected = true;
                         settings.preferredCurrencyCode = code;
-                        optionsContainer.showPage("OptionsPage");
+                        //optionsContainer.showPage("OptionsPage");
+                        container.accepted();
                     }
 
                 }
@@ -96,7 +97,8 @@ SimplePage {
         label: translator.closeText
 
         onClicked: {
-            optionsContainer.showPage("OptionsPage");
+            //optionsContainer.showPage("OptionsPage");
+            container.dismissed();
         }
     }
 

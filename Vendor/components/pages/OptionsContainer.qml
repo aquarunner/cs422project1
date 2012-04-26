@@ -24,17 +24,26 @@ MultiPage {
     OptionsPage {
         pageName: "OptionsPage"
         id: optionsPage
+
+        onAccepted: {
+            playArea.showPage("Items");
+        }
+
+        onDismissed: {
+            playArea.showPage("Items");
+        }
     }
+
 
     AllergenSelection {
         pageName: "AllergenSelection"
 
         onAccepted: {
-            optionsArea.showPage("OptionsPage");
+            optionsContainer.showPage("OptionsPage");
         }
 
         onDismissed: {
-            optionsArea.showPage("OptionsPage");
+            optionsContainer.showPage("OptionsPage");
         }
     }
 
@@ -42,11 +51,11 @@ MultiPage {
         pageName: "LanguageSelection"
 
         onAccepted: {
-            optionsArea.showPage("OptionsPage");
+            optionsContainer.showPage("OptionsPage");
         }
 
         onDismissed: {
-            optionsArea.showPage("OptionsPage");
+            optionsContainer.showPage("OptionsPage");
         }
 
 
@@ -57,24 +66,20 @@ MultiPage {
         pageName: "CurrencySelection"
 
         onAccepted: {
-            optionsArea.showPage("OptionsPage");
+            optionsContainer.showPage("OptionsPage");
         }
 
         onDismissed: {
-            optionsArea.showPage("OptionsPage");
-        }
+            optionsContainer.showPage("OptionsPage");
 
+        }
     }
 
     PaymentForm {
         pageName: "PaymentForm"
 
         onAccepted: {
-            optionsArea.showPage("OptionsPage");
-        }
-
-        onDismissed: {
-            optionsArea.showPage("OptionsPage");
+            optionsContainer.showPage("OptionsPage");
         }
 
     }

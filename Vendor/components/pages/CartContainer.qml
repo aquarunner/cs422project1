@@ -13,18 +13,34 @@ import "../common"
 MultiPage {
     id: container
 
-    Component.onCompleted: showPage("Cart");
+    onVisibleChanged: {
+        if (container.visible)    {
+            showPage("Cart");
+        }
+    }
 
     Cart {
         id: cartPage
         pageName: "Cart"
+
+        onAccepted: {
+            cartContainer.showPage("CheckoutPage");
+            //            main.checkout();
+            //            cartListModel.clear();
+            //            itemsPage.showFront();
+
+        }
+
+        onDismissed: {
+            itemsPage.showFront();
+        }
     }
 
 
     FlipablePage {
         id: checkoutPage
         pageName: "CheckoutPage"
-        front: CheckoutConfirm {}
-        back: CheckoutForm {}
+        front: CheckoutConfirm { id: checkoutConfirm }
+        //back: CheckoutForm {}
     }
 }
