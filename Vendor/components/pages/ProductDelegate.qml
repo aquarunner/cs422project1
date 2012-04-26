@@ -1,7 +1,9 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: ProductDelegate.qml
+ * Description: Controls display of product details including name,
+ *              price, image and functional controls to add/remove favorites,
+ *              product map, and product ingredients.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -133,7 +135,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
 
         onClicked: {
-            if (allergens) {
+            if (main.hasAllergens(allergens)) {
                 settings.selectedProductID = id;
                 itemsContainer.showPage("AllergenWarning");
             } else {

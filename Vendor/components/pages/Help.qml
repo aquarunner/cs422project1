@@ -1,7 +1,7 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: Help.qml
+ * Description: Built-in help page.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -46,12 +46,26 @@ SimplePage {
         visible: !helpContainer.atYEnd
     }
 
+    Button {
+        id: complaintButton
+        width: 140
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.margins: 10
+        label: translator.reportIssuesText
+
+        onClicked: {
+            //playArea.showPage("Complaints");
+        }
+    }
+
 
     Button {
         id: helpBackButton
+        width: 140
         anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottomMargin: 10
+        anchors.right: parent.right
+        anchors.margins: 10
         label: translator.backToItemsText
 
         onClicked: {

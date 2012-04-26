@@ -1,7 +1,6 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: ImageUnavailable.qml
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012

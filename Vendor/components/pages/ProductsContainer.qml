@@ -1,7 +1,7 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: ProductsContainer.qml
+ * Description: Controls display of vending machine contents.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -14,6 +14,13 @@ MultiPage {
     id: container
 
     Component.onCompleted: showPage("Products")
+
+    onVisibleChanged: {
+        if (container.visible) {
+            container.showPage("Products");
+        }
+
+    }
 
     Products {
         id: productsPage

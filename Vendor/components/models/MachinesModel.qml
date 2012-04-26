@@ -1,7 +1,9 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: MachinesModel.qml
+ * Description: Data to simulate vending machines.
+ *              Inventory role indicates which product IDs that machine has in stock.
+ *              roduct IDs range from 1 to 20.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012

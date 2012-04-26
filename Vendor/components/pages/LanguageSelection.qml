@@ -1,3 +1,12 @@
+/*
+ * File: LanguageSelection.qml
+ * Description: Provides a list of language options to be selected.
+ * Author: dyoung24
+ * Instructor: Johnson
+ * Course: CS 422
+ * Date: 4-26-2012
+ */
+
 import QtQuick 1.0
 import "../common"
 

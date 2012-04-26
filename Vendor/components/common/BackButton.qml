@@ -7,6 +7,6 @@ Button {
     property bool cartShowing: itemsPage.currentPage === "Cart"
 
     onClicked: {
-        itemsContainer.showPage("Items");
+        itemsContainer.showPage("ItemsPage");
     }
 }

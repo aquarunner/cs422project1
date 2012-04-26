@@ -1,7 +1,7 @@
 /*
  * File: CategorySelection.qml
- * Description:
- * Author: dyoung24@uic.edu
+ * Description: Provides a list of categories to filter the product selection.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012

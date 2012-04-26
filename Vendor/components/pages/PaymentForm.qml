@@ -1,12 +1,23 @@
+/*
+ * File: PaymentForm.qml
+ * Description: Displays the user input fields for credit card info
+ * Author: dyoung24
+ * Instructor: Johnson
+ * Course: CS 422
+ * Date: 4-26-2012
+ */
+
 import QtQuick 1.0
 import "../common"
 
 SimplePage {
     id: container
 
+    property string parentPage: ""
+
     onVisibleChanged: {
         if (container.visible) {
-            saveButton.selected = playArea.currentPage === "Options";
+            saveButton.selected = container.parentPage !== "Items";
 
             if (settings.paymentNumber) {
                 paymentName.input = settings.paymentName;
@@ -136,7 +147,7 @@ SimplePage {
                 id: saveButton
                 label: translator.saveText
                 anchors.horizontalCenter: parent.horizontalCenter
-                visible: playArea.currentPage === "Items"
+                visible: container.parentPage === "Items"
 
             }
         }
@@ -182,7 +193,7 @@ SimplePage {
         anchors.margins: 10
         width: 100
         //visible: paymentNumber.input
-        label: playArea.currentPage === "Items" ? translator.continueText : translator.saveText
+        label: container.parentPage === "Items" ? translator.continueText : translator.saveText
 
         onClicked: {
             //notificationPop.show(playArea.currentPage);

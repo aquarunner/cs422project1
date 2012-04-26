@@ -1,7 +1,7 @@
 /*
  * File: Vendor.qml
  * Description: Launcher for the Vendor application
- * Author: dyoung24@uic.edu
+ * Author: dyoung24
  * Instructor: Johnson
  * Date: 4-26-2012
  */
@@ -30,12 +30,22 @@ Item {
         if (settings.initDBOnLoad) {
             dbi.initialize();
         }
+
+        dbi.importPreferences();
     }
 
 
     FlipablePage {
         id: vendorFlip
-        front: Welcome {}
+        front: Welcome {
+            onAccepted: {
+                vendorFlip.showBack();
+            }
+
+            onDismissed: {
+                vendorFlip.showBack();
+            }
+        }
         back: Main { id: main }
     }
 

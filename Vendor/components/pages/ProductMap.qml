@@ -1,7 +1,7 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: ProductMap.qml
+ * Description: Controls display of a map to any vending machine.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -27,21 +27,26 @@ SimplePage {
 
 
     function showMapText(prodID) {
-        var prod = dbi.getProductInfo(settings.selectedProductID);
-        var machines = main.trim(prod.machines).split(" ");
 
-        if (machines.length === 0) {
-            mapText.text = translator.outOfStockText
-            return;
+        var machine;
+
+        // Iterate through six vending machines
+        // Return the first one that has this product in stock
+        for (var i = 1; i < 7; ++i) {
+            machine = dbi.getMachineInfo(i);
+
+            if (machine.inventory.indexOf(prodID) !== -1) {
+
+                break;
+            }
         }
 
 
-        var machineID = machines[0];
-        var random = Math.floor(Math.random()*machines.length);
-        // Uncomment the below line to choose a random vending machine
-        //var machineID = machines[random];
-
-        var machine = dbi.getMachineInfo(machineID);
+        // Not found anywhere?
+        if (machine === undefined) {
+            mapText.text = translator.outOfStockText
+            return;
+        }
 
         mapText.text = translator.mapHintText + machine.description
 

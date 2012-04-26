@@ -1,7 +1,7 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: ProductsModel.qml
+ * Description: Data to simulate available product selections independent of vending machines.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -19,7 +19,6 @@ ListModel{
         category: "Candy"
         favorite: ""
         allergens: ""
-        machines: "1 2 4 6"
         nutritionData: "../images/nutrition/skittles.png"
     }
 
@@ -30,7 +29,6 @@ ListModel{
         category: "Candy"
         favorite: ""
         allergens: "Egg MSG"
-        machines: "1 3"
         nutritionData: ""
     }
     ListElement {
@@ -40,7 +38,6 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: "peanuts"
-        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -50,7 +47,6 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: ""
-        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -60,7 +56,6 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: ""
-        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -70,7 +65,6 @@ ListModel{
         category: "Cookies"
         favorite: "Yes"
         allergens: ""
-        machines: "4 6"
         nutritionData: ""
     }
     ListElement {
@@ -80,7 +74,6 @@ ListModel{
         category: "Cookies"
         favorite: ""
         allergens: ""
-        machines: "4 6"
         nutritionData: ""
     }
 }

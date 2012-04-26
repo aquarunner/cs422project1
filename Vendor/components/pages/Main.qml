@@ -1,7 +1,8 @@
 /*
- * File:
- * Description:
- * Author: dyoung24@uic.edu
+ * File: Main.qml
+ * Description: Organizational helper for the vendor application.
+                Main areas are options, items (including car) and help.
+ * Author: dyoung24
  * Instructor: Johnson
  * Course: CS 422
  * Date: 4-26-2012
@@ -58,19 +59,19 @@ Rectangle {
         }
 
 
-
         OptionsContainer {
             id: optionsContainer
             pageName: "Options"
         }
 
-
-
-        FlipablePage {
-            //id: helpPage
+        Help {
+            id: helpContainer
             pageName: "Help"
-            front: Help {}
-            back: Complaints {}
+        }
+
+        Complaints {
+            id: complaintsPage
+            pageName: "Complaints"
         }
 
     }
@@ -146,6 +147,43 @@ Rectangle {
                 onClicked: playArea.showPage("Help");
             }
         }
+
+        // Reset Database
+        // Developer function
+        Rectangle {
+            visible: settings.showResetButton
+            id: resetButton
+            width: 45
+            height: 45
+            anchors.right: quitImage.left
+            anchors.top: optionsButton.top
+            anchors.rightMargin: 10
+            color: settings.canvasColor
+            radius: 4
+            scale: resetMouseArea.pressed ? 0.9 : 1
+            border.color: "black"
+            border.width: 2
+
+            Text {
+                text: "R"
+                anchors.centerIn: parent
+                font.pointSize: 20
+                font.bold: true
+                color: "grey"
+            }
+
+            MouseArea {
+                id: resetMouseArea
+                anchors.fill: parent
+                onClicked: {
+                    dbi.resetDB();
+                    dbi.initialize();
+                }
+
+            }
+        }
+
+
 
         Image {
             id: quitImage
@@ -263,4 +301,6 @@ Rectangle {
 
         return str;
     }
+
+
 }
