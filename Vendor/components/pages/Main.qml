@@ -45,6 +45,8 @@ Rectangle {
         fill: false
         anchors.top: headerArea.bottom
         anchors.bottom: mainControlArea.top
+        anchors.left: parent.left
+        anchors.right: parent.right
 
         Component.onCompleted: showPage("Items")
 
@@ -205,7 +207,35 @@ Rectangle {
     }
 
 
+    function addAllergen(name) {
+        if (settings.restrictedItems.indexOf(name) !== -1) {
+            // Found.  Don't do anything.
+            return;
+        }
 
+        settings.restrictedItems += " " + name;
+        //console.log(settings.restrictedItems)
+    }
+
+
+    function isRestricted(allergen) {
+        if (settings.restrictedItems.indexOf(allergen) === -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function removeAllergen(name) {
+        if (settings.restrictedItems.indexOf(name) === -1) {
+            // Not found.  Don't do anything.
+            return;
+        }
+
+        settings.restrictedItems = settings.restrictedItems.replace(" " + name, "");
+        //console.log(settings.restrictedItems)
+
+    }
 
     function trim(str) {
 

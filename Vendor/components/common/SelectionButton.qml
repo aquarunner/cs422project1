@@ -1,5 +1,5 @@
 /*
- * File: Button.qml
+ * File: AllergenButton.qml
  * Description: Reusable QML item
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
@@ -17,22 +17,34 @@ Rectangle {
     property string fontName: "Arial"
     property color fontColor: "black"
     property int fontSize: 14
-    property bool fontBold: false
 
     property alias text: container.label
     signal clicked()
 
-    property color topColor: "#FFFF66"
-    property color bottomColor: "#FFCC00"
+    property color topColor: "lightcyan"
+    property color bottomColor: "grey"
 
-    //height: 60
-    //width: 180
-    clip: true
-    height: 40
-    width: 180
+
+    //anchors.right: parent.right
+    //anchors.rightMargin: 20
+    height: 30
+    width: 140
     border.width: 1
     radius: 4
     smooth: true
+    opacity: container.selected ? 1 : 0.2
+
+
+    property bool selected: false
+
+
+    Behavior on opacity {
+        NumberAnimation {
+            duration: 300
+        }
+    }
+
+
 
     gradient: Gradient {
         GradientStop {
@@ -48,20 +60,19 @@ Rectangle {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-        onClicked: container.clicked()
+        onClicked: {
+            container.selected = !container.selected;
+            container.clicked();
+        }
     }
 
     Text {
         id: buttonLabel
         text: container.label
         wrapMode: Text.WordWrap
-        //anchors.centerIn: parent
-        anchors.fill: parent
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+        anchors.centerIn: parent
         font.family: container.fontName
         font.pointSize: container.fontSize
-        font.bold: container.fontBold
         color: container.fontColor
 
     }

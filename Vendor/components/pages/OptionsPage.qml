@@ -26,6 +26,11 @@ SimplePage {
             spacing: 5
 
 
+            Item {
+                id: filler
+                width: parent.width
+                height: 20
+            }
 
 
             Text {
@@ -107,6 +112,10 @@ SimplePage {
 
                     OptionButton {
                         label: settings.preferredCurrencyCode
+                        onClicked: {
+
+                            optionsContainer.showPage("CurrencySelection");
+                        }
                     }
 
 
@@ -151,7 +160,10 @@ SimplePage {
 
 
                     OptionButton {
-                        label: settings.preferredLanguage
+                        label: settings.restrictedItems ? translator.setText : translator.notSetText
+                        onClicked: {
+                            optionsContainer.showPage("AllergenSelection");
+                        }
                     }
 
 
@@ -190,7 +202,7 @@ SimplePage {
 
 
                     OptionButton {
-                        label: qsTr("[ %1 ]").arg(settings.storedCCNumber ? translator.setText : translator.notSetText)
+                        label: settings.storedCCNumber ? translator.setText : translator.notSetText
                     }
 
 
@@ -225,7 +237,7 @@ SimplePage {
 
 
                     OptionButton {
-                        label: qsTr("[ %1 ]").arg(translator.clearText)
+                        label: translator.clearText
 
                         onClicked: {
                             historyListModel.clear();

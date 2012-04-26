@@ -1,5 +1,5 @@
 /*
- * File: QMLSettings.qml
+ * File: DefaultSettings.qml
  * Description: Global application variables (read and write)
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
@@ -30,5 +30,5 @@ Item {
     property string storedCCNumber: ""
     property string storedCCCode: ""
     property string storedCCExpiry: ""
-
+    property string restrictedItems: ""
 }
