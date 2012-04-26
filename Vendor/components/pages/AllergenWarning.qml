@@ -58,7 +58,7 @@ SimplePage {
 
         Text {
             id: allergenText
-            text: container.prodAllergens
+            text: main.trim(main.hasAllergens(container.prodAllergens)).replace(" ", ", ")
             color: "white"
             font.bold: true
             font.pointSize: settings.canvasPointSize

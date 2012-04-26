@@ -29,7 +29,7 @@ ListModel{
         image: ""
         category: "Candy"
         favorite: ""
-        allergens: ""
+        allergens: "Egg MSG"
         machines: "1 3"
         nutritionData: ""
     }

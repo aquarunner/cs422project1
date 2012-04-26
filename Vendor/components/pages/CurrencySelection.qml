@@ -49,6 +49,7 @@ SimplePage {
                     selected: true
                     onClicked: {
                         selected = true;
+                        settings.preferredCurrencyCode = code;
                         optionsContainer.showPage("OptionsPage");
                     }
 

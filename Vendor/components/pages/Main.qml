@@ -232,10 +232,31 @@ Rectangle {
             return;
         }
 
-        settings.restrictedItems = settings.restrictedItems.replace(" " + name, "");
+        settings.restrictedItems = trim(settings.restrictedItems.replace(name, ""));
         //console.log(settings.restrictedItems)
 
     }
+
+
+    function hasAllergens(allergens) {
+
+        if (!allergens) {
+            return "";
+        }
+
+        var allergensFound = "";
+        var allergensContained = trim(allergens).split(" ");
+        //console.log(allergens, allergensContained.length, allergensContained[0]);
+        for (var i = 0; i < allergensContained.length; ++i) {
+            if (main.isRestricted(allergensContained[i])) {
+                //console.log(allergensContained[i]);
+                allergensFound += " " + allergensContained[i];
+            }
+        }
+
+        return allergensFound;
+    }
+
 
     function trim(str) {
 
