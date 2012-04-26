@@ -45,6 +45,17 @@ Item {
     }
 
 
+    Text {
+        id: productPrice
+        text: dbi.currencyExchange(price, settings.preferredCurrencyCode)
+        color: "white"
+        font.bold: true
+        anchors.left: productImage.right
+        anchors.leftMargin: container.spacing
+        anchors.verticalCenter: cautionButton.verticalCenter
+
+    }
+
     ProductFunctionButton {
         id: cautionButton
         anchors.right: favoriteButton.left
@@ -52,14 +63,16 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         source: "../images/caution.png"
 
-        opacity: hasAllergens ? 1 : 0.1
+        opacity: main.hasAllergens(allergens) ? 1 : 0.1
 
-        property bool hasAllergens: allergens
         onClicked: {
-            if (!hasAllergens) {
+            var found = main.hasAllergens(allergens);
+
+            if (!found) {
                 notificationPop.show(translator.noAllergensText);
             } else {
-                var message = translator.allergensContainedText + allergens
+
+                var message = translator.allergensContainedText + main.trim(found).replace(" ", ", ")
                 notificationPop.show(message);
             }
         }

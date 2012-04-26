@@ -6,6 +6,7 @@ Item {
 
     property string currencyHintText: "Currency Selection"
     property string closeText: "Close"
+    property string resetText: "Reset"
     property string saveText: "Save"
     property string complaintMessageText: "Items missing? Submit your suggestion here."
     property string allergenHintText: "Avoid These Ingredients"

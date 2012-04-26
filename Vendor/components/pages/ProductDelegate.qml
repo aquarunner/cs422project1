@@ -52,15 +52,16 @@ Item {
         anchors.rightMargin: container.spacing
         anchors.verticalCenter: parent.verticalCenter
         source: "../images/caution.png"
+        opacity: main.hasAllergens(allergens) ? 1 : 0.1
 
-        opacity: hasAllergens ? 1 : 0.1
-
-        property bool hasAllergens: allergens
         onClicked: {
-            if (!hasAllergens) {
+            var found = main.hasAllergens(allergens);
+
+            if (!found) {
                 notificationPop.show(translator.noAllergensText);
             } else {
-                var message = translator.allergensContainedText + allergens
+
+                var message = translator.allergensContainedText + main.trim(found).replace(" ", ", ")
                 notificationPop.show(message);
             }
         }
