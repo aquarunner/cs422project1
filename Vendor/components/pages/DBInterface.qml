@@ -257,6 +257,29 @@ Item {
     }
 
 
+    function importCurrencies(model) {
+
+        var sqlStatement = "SELECT * FROM currencies";
+        var results = doSql(sqlStatement);
+
+        var r = results.rows;
+
+        if (r.length === 0) {
+            //console.log("importCurrencies: no results");
+        }
+
+        model.clear();
+
+        for (var i = 0; i < r.length; i++) {
+            model.append({
+                             "name": r.item(i).name,
+                             "code": r.item(i).code,
+                             "rate": r.item(i).rate
+                         });
+        }
+
+        return true;
+    }
 
 
     function importCategories(model) {

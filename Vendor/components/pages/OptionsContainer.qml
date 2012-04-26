@@ -12,7 +12,7 @@ import "../common"
 
 MultiPage {
     id: container
-    anchors.margins: 5
+    //anchors.margins: 5
     clip: true
 
     onVisibleChanged: {
@@ -26,8 +26,8 @@ MultiPage {
         id: optionsPage
     }
 
-    AllergensSelection {
-        pageName: "AllergensSelection"
+    AllergenSelection {
+        pageName: "AllergenSelection"
 
         onAccepted: {
             optionsArea.showPage("OptionsPage");

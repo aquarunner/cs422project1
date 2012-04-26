@@ -4,13 +4,19 @@ import QtQuick 1.0
 Item {
     id: container
 
+    property string currencyHintText: "Currency Selection"
+    property string closeText: "Close"
+    property string saveText: "Save"
+    property string complaintMessageText: "Items missing? Submit your suggestion here."
+    property string allergenHintText: "Avoid These Ingredients"
+    property string backToOptionsText: "Back To Options"
     property string emptyHistoryText: "No Items In History"
     property string clearText: "Clear"
     property string purchaseHistoryText: "Purchase History"
     property string notSetText: "Not Set"
-    property string setText: "Set"
+    property string setText: "Saved"
     property string paymentMethodText: "Payment Method"
-    property string restrictedItemsText: "Restricted Items"
+    property string restrictedItemsText: "Allergen Selection"
     property string currencyText: "Currency"
     property string preferencesText: "Preferences"
     property string languageText: "Language"
