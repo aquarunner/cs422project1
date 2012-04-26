@@ -82,6 +82,9 @@ MultiPage {
             optionsContainer.showPage("OptionsPage");
         }
 
+        onDismissed: {
+            optionsContainer.showPage("OptionsPage");
+        }
     }
 
 }

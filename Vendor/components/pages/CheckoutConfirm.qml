@@ -6,7 +6,7 @@ MultiPage {
 
     onVisibleChanged: {
         if (container.visible) {
-            if (settings.savedCC) {
+            if (!settings.paymentNumber) {
                 checkoutConfirm.showPage("PaymentForm");
             } else {
 
@@ -63,15 +63,13 @@ MultiPage {
         pageName: "PaymentForm"
 
         onAccepted: {
-            //settings.savedCC = true;
             main.checkout();
             itemsPage.showFront();
-            notificationPop("Purchase complete");
         }
 
         onDismissed: {
             itemsPage.showFront();
-            notificationPop("Purchase canceled");
+            notificationPop.show("Checkout Canceled");
         }
 
     }

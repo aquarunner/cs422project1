@@ -25,9 +25,6 @@ MultiPage {
 
         onAccepted: {
             cartContainer.showPage("CheckoutPage");
-            //            main.checkout();
-            //            cartListModel.clear();
-            //            itemsPage.showFront();
 
         }
 
@@ -41,6 +38,5 @@ MultiPage {
         id: checkoutPage
         pageName: "CheckoutPage"
         front: CheckoutConfirm { id: checkoutConfirm }
-        //back: CheckoutForm {}
     }
 }

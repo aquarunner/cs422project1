@@ -202,6 +202,7 @@ Rectangle {
         settings.totalPrice = 0
         dbi.addToHistory(settings.cartItems);
         settings.cartItems = ""
+        notificationPop.show("Purchase Complete")
     }
 
 

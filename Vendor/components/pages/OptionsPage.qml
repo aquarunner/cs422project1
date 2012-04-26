@@ -206,7 +206,7 @@ SimplePage {
 
 
                     OptionButton {
-                        label: settings.storedCCNumber ? translator.setText : translator.notSetText
+                        label: settings.paymentNumber ? translator.setText : translator.notSetText
                         onClicked: {
                             optionsContainer.showPage("PaymentForm");
                         }

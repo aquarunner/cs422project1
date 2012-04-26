@@ -25,10 +25,9 @@ Item {
     property int canvasPointSize: 11
     property string cartItems: ""
     property color productColor: "khaki"
-    property bool savedCC: true
-    property string storedCCName: ""
-    property string storedCCNumber: ""
-    property string storedCCCode: ""
-    property string storedCCExpiry: ""
+    property string paymentName: ""
+    property string paymentNumber: ""
+    property string paymentCVV: ""
+    property string paymentExpiry: ""
     property string restrictedItems: ""
 }
