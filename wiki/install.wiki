@@ -1,4 +1,3 @@
-#summary Install page
 
 = Introduction =
 
