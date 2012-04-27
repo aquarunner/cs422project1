@@ -10,7 +10,7 @@ The vendor app was created exclusively with [http://qt-project.org/doc/qt-4.8/qt
 
 
 
-  # [http://code.google.com/p/cs422project1/wiki/download Download the program]
+  # [http://cs422project1.googlecode.com/files/Vendor.zip Download the program]
   # [http://code.google.com/p/cs422project1/wiki/install Install instructions]
   # [http://code.google.com/p/cs422project1/wiki/report View the report]
 
