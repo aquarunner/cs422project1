@@ -19,6 +19,6 @@ Project {
     // importPaths: [ "../exampleplugin" ]
 
     Files {
-        filter: "readme.txt;qmldir"
+        filter: "readme.txt;qmldir;*.xml"
     }
 }

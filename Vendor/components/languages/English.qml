@@ -4,6 +4,9 @@ import QtQuick 1.0
 Item {
     id: container
 
+    property string purchaseCompleteText: "Purchase Complete"
+    property string purchaseCanceledText: "Purchase Canceled"
+    property string logoHintText: "Delicious Items Near You"
     property string yesText: "Yes"
     property string noText: "No"
     property string welcomeText: "Welcome to Vendor Manager"

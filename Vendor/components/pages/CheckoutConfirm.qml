@@ -79,7 +79,7 @@ MultiPage {
 
         onDismissed: {
             itemsPage.showFront();
-            notificationPop.show("Checkout Canceled");
+            notificationPop.show(translator.purchaseCanceledText);
         }
 
     }

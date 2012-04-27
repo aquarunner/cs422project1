@@ -77,7 +77,7 @@ SimplePage {
                 label: translator.warningYes
                 onClicked: {
                     main.addToCart(settings.selectedProductID);
-                    itemsContainer.showPage("Items");
+                    itemsContainer.showPage("ItemsPage");
                 }
 
             }
@@ -87,7 +87,7 @@ SimplePage {
                 height: 50
                 label: translator.warningNo
                 onClicked: {
-                    itemsContainer.showPage("Items");
+                    itemsContainer.showPage("ItemsPage");
                 }
             }
         }
