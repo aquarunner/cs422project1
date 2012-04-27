@@ -229,11 +229,11 @@ Item {
 
         var sqlStatement;
         if (type === "Favorites")
-            sqlStatement = "SELECT * FROM Products WHERE favorite <> ''";
+            sqlStatement = "SELECT * FROM Products WHERE favorite <> '' ORDER BY name";
         else if (type === "All")
-            sqlStatement = "SELECT * FROM Products";
+            sqlStatement = "SELECT * FROM Products ORDER BY name";
         else if (type === "Category")
-            sqlStatement = "SELECT * FROM Products WHERE category = '" + category + "'";
+            sqlStatement = "SELECT * FROM Products WHERE category = '" + category + "' ORDER BY name";
         var results = doSql(sqlStatement);
 
         var r = results.rows;

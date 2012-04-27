@@ -14,9 +14,9 @@ Item {
 
     property string appName: "VendorManager"
     property color canvasColor: "#222222"
-    property bool firstRun: true
-    property bool showResetButton: true
-    property bool alwaysReset: false
+    property bool firstRun: false
+    property bool showResetButton: false
+    property bool alwaysReset: true
     property bool initDBOnLoad: true
     property int totalCartItems: 0
     property real totalPrice: 0.0
