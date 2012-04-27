@@ -1,3 +1,5 @@
+#sidebar navigation
+
 = Project 1 Install Instructions =
 
 == Step 1 - Download / unpack the vendor application ==
@@ -21,8 +23,18 @@ Once Qt SDK is installed, you can use Qmlviewer to launch the program.
 
 == Step 3 - Launching from Qmlviewer ==
 
-Qmlviewer (qmlviewer.exe) is a tool that is installed along with the Qt SDK.  Locate and run this.
+Qmlviewer (qmlviewer.exe) is a tool that is installed along with the Qt SDK.  Locate and run this.  There are two ways:
 
-The location of qmlviewer is dependent on the location of the Qt SDK installation on your system, as [http://doc.qt.nokia.com/4.7-snapshot/qmlviewer.html described by Nokia on their website].  On a typical Windows environment, it may be located at `C:\QtSDK\Desktop\Qt\4.7.4\mingw\bin\qmlviewer.exe`.  On your system the location may differ by the version of the SDK.
+  # The location of qmlviewer is dependent on the location of the Qt SDK installation on your system, as [http://doc.qt.nokia.com/4.7-snapshot/qmlviewer.html described by Nokia on their website].  On a typical Windows environment, it may be located at `C:\QtSDK\Desktop\Qt\4.7.4\mingw\bin\qmlviewer.exe`.  On your system the location may differ by the version of the SDK.
+  # Alternatively you may open a development environment console for Qt SDK.  On Windows a shortcut for this may be located in the Start menu within the Qt SDK > Desktop folder, as depicted below.  Once any console is open, enter "qmlviewer.exe" at the prompt to start Qmlviewer.
 
-Once Qmlviewer is started, choose File > Open, to start the open file dialogue.  Navigate to the "Vendor" folder location and open the Vendor.qml file.  The program will now launch.
+http://cs422project1.googlecode.com/files/Clipboard01.png
+
+http://cs422project1.googlecode.com/files/Clipboard02.png
+
+
+Once Qmlviewer is started, choose File > Open, to start the open file dialogue.  Navigate to the "Vendor" folder location and open the Vendor.qml file.
+
+http://cs422project1.googlecode.com/files/Clipboard03.png
+
+Then program will then start.
