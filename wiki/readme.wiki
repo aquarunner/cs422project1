@@ -1,13 +1,5 @@
 #summary Landing page
 
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * [http://code.google.com/p/cs422project1/w/edit/download Download the program]
+  * [http://code.google.com/p/cs422project1/w/edit/install Install instructions]
+  * [http://code.google.com/p/cs422project1/w/edit/report View the report]
