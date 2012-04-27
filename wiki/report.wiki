@@ -1,5 +1,3 @@
-#sidebar navigation
-
 Project 1 for this course was extended to include database backend support, and to be designed for dimensions approximating a handheld such as the iPhone.
 
 Apple's web page on [http://www.apple.com/iphone/specs.html iPhone specs] actually lists 960-by-640-pixel resolution at 326 ppi.  I experimented with this and multiple dimensions, ultimately finding that the best fit for desktop development came from the Qt Declarative example files, with width and height 360 by 640.  In the end I was pleased to find that the implementation adequately supported all of the dimensions when the canvas is resized.  Screen shots below.
@@ -15,3 +13,22 @@ http://cs422project1.googlecode.com/files/Clipboard05.png
 Width 360, Height 640
 
 http://cs422project1.googlecode.com/files/Clipboard06.png
+
+
+Additionally I tasked myself with finding a color scheme that is functionally useful.  To accomplish this I applied color only where there needs to be contrast to separate the element from the others around it.  This mostly includes buttons amongst other buttons, buttons of different types intermingling, and buttons with non-button elements like labels.
+
+I used vischeck.com to verify the contrast did achieve the desired effect.  While I admit the color scheme isn't the most attractive, it accomplished the original goal.  Vischeck sample results below.
+
+http://cs422project1.googlecode.com/files/Clipboard07.png
+
+http://cs422project1.googlecode.com/files/Clipboard08.png
+
+http://cs422project1.googlecode.com/files/Clipboard09.png
+
+http://cs422project1.googlecode.com/files/Clipboard10.png
+
+http://cs422project1.googlecode.com/files/Clipboard11.png
+
+http://cs422project1.googlecode.com/files/Clipboard12.png
+
+http://cs422project1.googlecode.com/files/Clipboard13.png
