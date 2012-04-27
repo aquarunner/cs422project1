@@ -1,12 +1,16 @@
 #sidebar navigation
-= Introduction =
 
-Add your content here.
+Project 1 for this course was extended to include database backend support, and to be designed for dimensions approximating a handheld such as the iPhone.
 
+Apple's web page on [http://www.apple.com/iphone/specs.html iPhone specs] actually lists 960-by-640-pixel resolution at 326 ppi.  I experimented with this and multiple dimensions, ultimately finding that the best fit for desktop development came from the Qt Declarative example files, with width and height 360 by 640.  In the end I was pleased to find that the implementation adequately supported all of the dimensions when the canvas is resized.
 
-= Details =
+Screen shots below.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Width 640, Height 960
+http://cs422project1.googlecode.com/files/Clipboard04.png
+
+Width 960, Height 640
+http://cs422project1.googlecode.com/files/Clipboard05.png
+
+Width 360, Height 640
+http://cs422project1.googlecode.com/files/Clipboard06.png
