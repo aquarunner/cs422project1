@@ -1,4 +1,4 @@
-= Project 1 =
+= Project 1 Read Me=
 
 ====Program Name: Vendor Manager====
 ====Course: CS 422====
@@ -8,11 +8,9 @@
 
 The vendor app was created exclusively with [http://qt-project.org/doc/qt-4.8/qtquick.html QtQuick / QML] with some JavaScript helping along.  To get started using it you must download and install [http://qt.nokia.com/products/qt-sdk/ the Qt SDK] by Nokia.  Please review below for additional detail.
 
-
-
-  # [http://cs422project1.googlecode.com/files/Vendor.zip Download the program]
-  # [http://code.google.com/p/cs422project1/wiki/install Install instructions]
-  # [http://code.google.com/p/cs422project1/wiki/report View the report]
+  * [http://cs422project1.googlecode.com/files/Vendor.zip Download the program]
+  * [http://code.google.com/p/cs422project1/wiki/install Install instructions]
+  * [http://code.google.com/p/cs422project1/wiki/report View the report]
 
 
 Please direct any questions or issues regarding the application directly to me.  You may email directly at dyoung24 *omit the bold* @uic.edu
@@ -20,4 +18,4 @@ Please direct any questions or issues regarding the application directly to me. 
 
 ----
 
-= Documentation = 
+= Using The Vendor Application = 
