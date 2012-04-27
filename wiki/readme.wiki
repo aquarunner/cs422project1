@@ -1,4 +1,3 @@
-#summary Landing page
 
   * [http://code.google.com/p/cs422project1/w/edit/download Download the program]
   * [http://code.google.com/p/cs422project1/w/edit/install Install instructions]
