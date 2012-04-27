@@ -11,7 +11,7 @@ The vendor app was created exclusively with [http://qt-project.org/doc/qt-4.8/qt
 
   * [http://cs422project1.googlecode.com/files/Vendor.zip Download the program] (approx 300 KB, ZIP file)
   * [http://code.google.com/p/cs422project1/wiki/install Install instructions]
-  * [http://code.google.com/p/cs422project1/wiki/report View the report]
+  * [http://code.google.com/p/cs422project1/wiki/report Design notes]
 
 
 Please direct any questions or issues regarding the application directly to me.  You may email directly at dyoung24 *omit the bold* @uic.edu
