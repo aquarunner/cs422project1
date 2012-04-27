@@ -1,12 +1,26 @@
+== Step 1 - Download / unpack the vendor application ==
 
-= Introduction =
+The latest version of the application may be downloaded from the project's downloads area, or via [http://cs422project1.googlecode.com/files/Vendor.zip this direct link].
 
-Add your content here.
+Save the ZIP file to a folder location on your computer, and open it.  The ZIP handling program on your computer should allow you to unzip it.  
+
+Make note of the unzipped "Vendor" folder location.  
+
+If you do not have a ZIP file program, or your computer responds that the file type is unrecognized, you may obtain a free zip program from [http://www.winzip.com WinZip].
+
+== Step 2 - Install Qt SDK ==
+
+Running the application requires the presence of the Qt SDK development environment.  If this is already installed on your system, you may proceed to step 3.
+
+To obtain Qt SDK, visit the install page on Nokia's website for the most up to date install instructions: http://www.developer.nokia.com/Develop/Qt/Getting_started/.
+
+Once Qt SDK is installed, you can use Qmlviewer to launch the program.
 
 
-= Details =
+== Step 3 - Launching from Qmlviewer ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Qmlviewer (qmlviewer.exe) is a tool that is installed along with the Qt SDK.  Locate and run this.
+
+The location of qmlviewer is dependent on the location of the Qt SDK installation on your system, as [http://doc.qt.nokia.com/4.7-snapshot/qmlviewer.html described by Nokia on their website].  On a typical Windows environment, it may be located at `C:\QtSDK\Desktop\Qt\4.7.4\mingw\bin\qmlviewer.exe`
+
+Once Qmlviewer is started, choose File > Open, to start the open file dialogue.  Navigate to the "Vendor" folder location and open the Vendor.qml file.  The program will now launch.
