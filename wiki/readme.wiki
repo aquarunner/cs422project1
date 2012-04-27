@@ -16,3 +16,8 @@ The vendor app was created exclusively with [http://qt-project.org/doc/qt-4.8/qt
 
 
 Please direct any questions or issues regarding the application directly to me.  You may email directly at dyoung24 *omit the bold* @uic.edu
+
+
+----
+
+= Documentation = 
