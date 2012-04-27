@@ -23,6 +23,6 @@ Once Qt SDK is installed, you can use Qmlviewer to launch the program.
 
 Qmlviewer (qmlviewer.exe) is a tool that is installed along with the Qt SDK.  Locate and run this.
 
-The location of qmlviewer is dependent on the location of the Qt SDK installation on your system, as [http://doc.qt.nokia.com/4.7-snapshot/qmlviewer.html described by Nokia on their website].  On a typical Windows environment, it may be located at `C:\QtSDK\Desktop\Qt\4.7.4\mingw\bin\qmlviewer.exe`
+The location of qmlviewer is dependent on the location of the Qt SDK installation on your system, as [http://doc.qt.nokia.com/4.7-snapshot/qmlviewer.html described by Nokia on their website].  On a typical Windows environment, it may be located at `C:\QtSDK\Desktop\Qt\4.7.4\mingw\bin\qmlviewer.exe`.  On your system the location may differ by the version of the SDK.
 
 Once Qmlviewer is started, choose File > Open, to start the open file dialogue.  Navigate to the "Vendor" folder location and open the Vendor.qml file.  The program will now launch.
