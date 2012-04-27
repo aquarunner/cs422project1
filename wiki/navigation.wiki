@@ -1,2 +1,4 @@
+  * [http://code.google.com/p/cs422project1/ Project Home]
   * [readme Read Me]
-  * Page 2
+  * [install Installation Instructions]
+  * [Design Notes]
