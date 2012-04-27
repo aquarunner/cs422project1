@@ -1,3 +1,4 @@
+#sidebar navigation
 Project 1 for this course was extended to include database backend support, and to be designed for dimensions approximating a handheld such as the iPhone.
 
 Apple's web page on [http://www.apple.com/iphone/specs.html iPhone specs] actually lists 960-by-640-pixel resolution at 326 ppi.  I experimented with this and multiple dimensions, ultimately finding that the best fit for desktop development came from the Qt Declarative example files, with width and height 360 by 640.  In the end I was pleased to find that the implementation adequately supported all of the dimensions when the canvas is resized.  Screen shots below.
@@ -32,3 +33,10 @@ http://cs422project1.googlecode.com/files/Clipboard11.png
 http://cs422project1.googlecode.com/files/Clipboard12.png
 
 http://cs422project1.googlecode.com/files/Clipboard13.png
+
+
+To implement database backend support, I created a library called Database Interface (DBI) which corresponds to the DBInterface.qml file.  All SQL statements are located here, and are integrated into QML through the use of Java Script.
+
+The actual database files are automatically created and managed on the target file system by Qt's built-in SQLITE support.  More information about this is available [http://doc.qt.nokia.com/4.7-snapshot/qdeclarativeglobalobject.html#database-api here on Nokia's website].
+
+Unfortunately, the QtQuick library on its own does not allow changing.
