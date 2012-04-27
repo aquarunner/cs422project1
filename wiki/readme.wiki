@@ -1,11 +1,12 @@
-= Project 1 Readme =
+= Project 1 =
 
-Project Name: Vendor Manager
-Course: CS 422
-Instructor: Johnson
+====Program Name: Vendor Manager====
+====Course: CS 422====
+====Instructor: Johnson=
 
+----
 
-The vendor app was created exclusively with [http://doc.qt.nokia.com/4.7-snapshot/qdeclarativeintroduction.html QML] with some JavaScript helping along.  To get started using it you must download and install [http://qt.nokia.com/products/qt-sdk/ Qt Creator] by Nokia.  Please review below for additional detail.
+The vendor app was created exclusively with [http://doc.qt.nokia.com/4.7-snapshot/qdeclarativeintroduction.html QML] with some JavaScript helping along.  To get started using it you must download and install [http://qt.nokia.com/products/qt-sdk/ the Qt SDK] by Nokia.  Please review below for additional detail.
 
 
 
@@ -15,7 +16,5 @@ The vendor app was created exclusively with [http://doc.qt.nokia.com/4.7-snapsho
 
 
 Please direct any questions or issues regarding the application directly to me.  You may email directly at dyoung24 *omit the bold* @uic.edu
-
-
 
 
