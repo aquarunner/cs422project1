@@ -1,3 +1,5 @@
+= Project 1 Install Instructions =
+
 == Step 1 - Download / unpack the vendor application ==
 
 The latest version of the application may be downloaded from the project's downloads area, or via [http://cs422project1.googlecode.com/files/Vendor.zip this direct link].
