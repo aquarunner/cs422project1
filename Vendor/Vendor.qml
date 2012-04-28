@@ -17,6 +17,8 @@ Item {
     //width: 640
     //height: 960
 
+    //width: 960
+    //height: 640
 
     width: 360
     height: 640
@@ -64,7 +66,7 @@ Item {
 
 
     property alias dbi: dbinterface
-    DBInterface {
+    DBIntegration {
         id: dbinterface
     }
 }

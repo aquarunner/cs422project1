@@ -1,4 +1,15 @@
-// import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
+/*
+ * File: SimplePage.qml
+ * Description: Reusable QML item.
+ * Author: dyoung24@uic.edu
+ * Instructor: Johnson
+ * Course: CS 422
+ * Date: 4-26-2012
+ *
+ * Inspired by http://jryannel.wordpress.com/2010/02/17/using-textinput/
+ */
+
+
 import QtQuick 1.0
 
 

@@ -1,5 +1,14 @@
+/*
+ * File: PopUp.qml
+ * Description: Reusable QML item.
+ * Author: dyoung24@uic.edu
+ * Instructor: Johnson
+ * Course: CS 422
+ * Date: 4-26-2012
+ */
+
 import QtQuick 1.0
-//import "common"
+
 
 Rectangle {
     id: container
@@ -7,12 +16,23 @@ Rectangle {
     height: 60
     anchors.horizontalCenter: parent.horizontalCenter
     y: parent.height * 0.2
-    color: "#111111"
+    //color: "#111111"
     radius: 6
     border.color: "#888888"
     border.width: 4
     //anchors.centerIn: parent
     opacity: showing ? 1 : 0
+
+    gradient: Gradient {
+        GradientStop {
+            position: 0.0
+            color: "darkslategrey"
+        }
+        GradientStop {
+            position: 1.0
+            color: settings.canvasColor
+        }
+    }
 
     property bool showing: false
 

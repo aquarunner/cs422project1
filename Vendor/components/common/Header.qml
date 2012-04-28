@@ -1,6 +1,6 @@
 /*
- * File:
- * Description:
+ * File: Header.qml
+ * Description: Reusable QML item.
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
  * Course: CS 422

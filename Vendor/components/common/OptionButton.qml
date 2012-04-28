@@ -1,5 +1,5 @@
 /*
- * File: Button.qml
+ * File: OptionButton.qml
  * Description: Reusable QML item
  * Author: dyoung24@uic.edu
  * Instructor: Johnson

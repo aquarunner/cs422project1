@@ -1,5 +1,5 @@
 /*
- * File: ModelPopUp.qml
+ * File: ModalPopUp.qml
  * Description: Reusable QML item.  Stripped down version of FlipablePage.qml.
  * Author: dyoung24@uic.edu
  * Instructor: Johnson
