@@ -90,4 +90,15 @@ http://www.xe.com/ucc/
 Statistics on Left Handed vs Right Handed
 http://www.humanforsale.com/left-vs-right.asp
 
+Qt Quick / QML
+http://qt-project.org/doc/qt-4.8/qtquick.html
+
+iPhone specs
+http://www.apple.com/iphone/specs.html
+
+QML Offline Storage API
+http://doc.qt.nokia.com/4.7-snapshot/qdeclarativeglobalobject.html#database-api
+
+SQLite Browser
+http://sqlitebrowser.sourceforge.net/
 ----
