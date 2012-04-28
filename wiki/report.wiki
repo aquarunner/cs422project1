@@ -6,6 +6,8 @@
 
 Project 1 for this course was extended to include database backend support, and to be designed for dimensions approximating a handheld such as the iPhone.
 
+----
+
 === Dimensions ===
 
 Apple's web page on [http://www.apple.com/iphone/specs.html iPhone specs] actually lists 960-by-640-pixel resolution at 326 ppi.  I experimented with this and multiple dimensions, ultimately finding that the best fit for desktop development came from the Qt Declarative example files, with width and height 360 by 640.  In the end I was pleased to find that the implementation adequately supported all of the dimensions when the canvas is resized.  Screen shots below.
@@ -21,6 +23,8 @@ http://cs422project1.googlecode.com/files/Clipboard05.png
 Width 360, Height 640
 
 http://cs422project1.googlecode.com/files/Clipboard06.png
+
+----
 
 === Color Scheme ===
 
@@ -42,17 +46,19 @@ http://cs422project1.googlecode.com/files/Clipboard12.png
 
 http://cs422project1.googlecode.com/files/Clipboard13.png
 
+----
+
 === SQLite Support ===
 
 To implement database backend support, I created a library called Database Integration (DBI) which corresponds to the DBIntegration.qml file.  All SQL statements are located here, and are integrated into QML through the use of JavaScript.
 
-The actual database files are automatically created and managed on the target file system by Qt's built-in SQLITE support.  More information about this is available [http://doc.qt.nokia.com/4.7-snapshot/qdeclarativeglobalobject.html#database-api here on Nokia's website], but I provide a synopsis here.
+The actual database files are automatically created and managed on the target file system by Qt's built-in SQLite support.  More information about this is available [http://doc.qt.nokia.com/4.7-snapshot/qdeclarativeglobalobject.html#database-api on Nokia's website], but I provide a synopsis here.
 
-Essentially, the QtQuick library support for SqLite, by itself, does not allow changing the location of the database on the file system.  External tools such as a C++ executable launcher or plugin would allow changing the database file path, which would make importing a database from disk easy.  
+Essentially, the QtQuick library support for SQLite, by itself, does not allow changing the location of the database on the file system.  External tools such as a C++ executable launcher or plugin would allow changing the database file path, which would make importing a database from disk easy.  
 
 Therefore, because the Vendor implementation uses strict QML/JavaScript (with built-in SQLite support), the DBI initialization procedures will import data from QML ListModels into the database when it is auto-created, after which the list model is no longer used.  Other data are also populated into the database from list models, such as currency and vending machine information.
 
-This method of implementation is striclty demonstrative of support for integrating with a database.  Its main benefit of SQLite in this application is the ability to save information, such as user preferences, to disk which will be loaded when the program starts.
+This method of implementation is striclty demonstrative of support for integrating with a database.  The main benefit of SQLite in this application is the ability to save information, such as user preferences, to disk which will be loaded when the program starts.
 
 If you wish to view the database on your system after running the program, you may locate it in the Offline Storage folder path, which is system dependent.  The [http://doc.qt.nokia.com/4.7-snapshot/qdeclarativeengine.html#offlineStoragePath-prop Offline Storage documentation] on Nokia's website has more information about this.  On my system the file is located at `C:\Users\%username%\AppData\Local\Nokia\QtQmlViewer\QML\OfflineStorage\Databases`
 
@@ -60,8 +66,14 @@ The actual database schema is depicted below.  This was taken in the [http://sql
 
 http://cs422project1.googlecode.com/files/Clipboard14.png
 
+----
 
 === Implementation Details ===
+multiling
+curency
 
+----
 
 === References ===
+
+----
