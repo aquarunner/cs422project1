@@ -14,7 +14,7 @@ Item {
 
     property string appName: "VendorManager"
     property color canvasColor: "#222222"
-    property bool firstRun: false
+    property bool firstRun: true
     property bool showResetButton: false
     property bool alwaysReset: true
     property bool initDBOnLoad: true
@@ -31,5 +31,5 @@ Item {
     property string paymentNumber: ""
     property string paymentCVV: ""
     property string paymentExpiry: ""
-    property string restrictedItems: ""
+    property string restrictedItems: "Egg"
 }

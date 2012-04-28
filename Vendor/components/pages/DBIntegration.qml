@@ -469,6 +469,6 @@ Item {
         settings.paymentNumber = getSetting("paymentNumber");
         settings.paymentCVV = getSetting("paymentCVV");
         settings.paymentExpiry = getSetting("paymentExpiry");
-        settings.restrictedItems = getSetting("restrictedItems");
+        settings.restrictedItems = getSetting("restrictedItems") ? getSetting("restrictedItems") : settings.restrictedItems;
     }
 }
