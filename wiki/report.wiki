@@ -4,7 +4,7 @@
 
 === Introduction ===
 
-Project 1 for this course was extended to include database backend support, and to be designed for dimensions approximating a handheld such as the iPhone.
+Project 1 for this course was modified as an honor's activity extension to include database backend support, and to be designed for dimensions approximating a handheld such as the iPhone.
 
 ----
 
@@ -12,15 +12,15 @@ Project 1 for this course was extended to include database backend support, and 
 
 Apple's web page on [http://www.apple.com/iphone/specs.html iPhone specs] actually lists 960-by-640-pixel resolution at 326 ppi.  I experimented with this and multiple dimensions, ultimately finding that the best fit for desktop development came from the Qt Declarative example files, with width and height 360 by 640.  In the end I was pleased to find that the implementation adequately supported all of the dimensions when the canvas is resized.  Screen shots below.
 
-Width 640, Height 960
+Width 640, Height 960:
 
 http://cs422project1.googlecode.com/files/Clipboard04.png
 
-Width 960, Height 640
+Width 960, Height 640:
 
 http://cs422project1.googlecode.com/files/Clipboard05.png
 
-Width 360, Height 640
+Width 360, Height 640; Final size:
 
 http://cs422project1.googlecode.com/files/Clipboard06.png
 
@@ -68,9 +68,13 @@ http://cs422project1.googlecode.com/files/Clipboard14.png
 
 ----
 
-=== Implementation Details ===
-multiling
-curency
+=== Additional Features ===
+
+Finally, I want to hilight the methods used to implement other features.  
+
+As noted above the Currencies table in the database provides exchange rates.  These rates are based on conversion from United States Dollar as of 4-21-2012 9:45am, which is when I gathered the data.  A commercial deployment of the vendor application would be able to import and display real time currency rates with ease.  
+
+I also took advantage of the QML Loader element in order to facilitate multilingual support.  While QtQuick provides built-in localization support, the api is not very apt for small projects.  The Loader element allowed easy composition of a list of phrases that can be duplicated in other files according to the supported language, and saved a great deal of time from development.
 
 ----
 
