@@ -9,7 +9,7 @@
 
 The vendor app was created exclusively with [http://qt-project.org/doc/qt-4.8/qtquick.html QtQuick / QML] with some Javascript helping along.  To get started using it you must download and install [http://qt.nokia.com/products/qt-sdk/ the Qt SDK] by Nokia.  Please review below for additional detail.
 
-  * [http://cs422project1.googlecode.com/files/Vendor.zip Download the program] (approx. 2 MB, ZIP file)
+  * [http://cs422project1.googlecode.com/files/Vendor.zip Download the program] approx. 2 MB, ZIP file
   * [http://code.google.com/p/cs422project1/wiki/install Installation instructions]
   * [http://code.google.com/p/cs422project1/wiki/report Design notes]
 
