@@ -14,7 +14,7 @@ The vendor app was created exclusively with [http://qt-project.org/doc/qt-4.8/qt
   * [http://code.google.com/p/cs422project1/wiki/report Design notes]
 
 
-Please direct any questions or issues regarding the application directly to me.  You may send me a message directly at dia dot y dot young **omit the bold** at gmail dot com.
+Please direct any questions or issues regarding the application directly to me.  You may send me a message directly at dia dot y dot young at **omit the bold** gmail dot com.
 
 
 ----
