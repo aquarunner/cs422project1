@@ -1,5 +1,5 @@
-#labels Featured
 #sidebar navigation
+#labels Featured
 = Project 1 Read Me=
 
 ====Program Name: Vendor Manager====
