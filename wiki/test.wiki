@@ -1,12 +1,9 @@
-#labels Featured
-#sidebar navigation
+# Project 1 Read Me #
 
-= Project 1 Read Me=
-
-====Program Name: Vendor Manager====
-====Author: Dia Young====
-====Course: CS 422====
-====Instructor: Johnson=
+####Program Name: Vendor Manager####
+####Author: Dia Young####
+####Course: CS 422####
+####Instructor: Johnson#
 
 ----
 
@@ -22,5 +19,5 @@ Please direct any questions or issues regarding the application directly to me. 
 
 ----
 
-= Using The Vendor Application = 
-<wiki:video url="http://www.youtube.com/watch?v=GfsEOBY_ul8">
+# Using The Vendor Application # 
+<wiki:video url#"http://www.youtube.com/watch?v#GfsEOBY_ul8">
