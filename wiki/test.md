@@ -1,9 +1,9 @@
-#Project 1 Read Me 
+# Project 1 Read Me 
 
-####Program Name: Vendor Manager
-####Author: Dia Young
-####Course: CS 422
-####Instructor: Johnson
+#### Program Name: Vendor Manager
+#### Author: Dia Young
+#### Course: CS 422
+#### Instructor: Johnson
 
 ----
 
@@ -14,10 +14,10 @@ The vendor app was created exclusively with [http://qt-project.org/doc/qt-4.8/qt
   * [http://code.google.com/p/cs422project1/wiki/report Design notes]
 
 
-Please direct any questions or issues regarding the application directly to me.  You may email directly at dyoung24 *omit the bold* @uic.edu
+Please direct any questions or issues regarding the application directly to me.  You may send me a message directly at dia dot y dot young *omit the bold* at gmail dot com.
 
 
 ----
 
-# Using The Vendor Application # 
+# Using The Vendor Application 
 <wiki:video url#"http://www.youtube.com/watch?v#GfsEOBY_ul8">
